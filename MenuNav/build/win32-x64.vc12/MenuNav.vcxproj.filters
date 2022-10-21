@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="G:\Dev\MenuNav\MenuNav.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\MenuNav\Hand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\MenuNav\HandInteractionManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\MenuNav\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\MenuNav\InitConstants.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\MenuNav\MassegeWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="G:\Dev\MenuNav\MenuNav.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\MenuNav\Hand.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\MenuNav\HandInteractionManager.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\MenuNav\InitConstants.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\MenuNav\MassegeWidget.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\Dev\MenuNav\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="G:\Dev\MenuNav\setup.ini">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="G:\Dev\MenuNav\_SourceFiles.cmake">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="G:\Dev\MenuNav\configfiles\android.ini">
+      <Filter>configfiles</Filter>
+    </None>
+    <None Include="G:\Dev\MenuNav\configfiles\display_desktop.ini">
+      <Filter>configfiles</Filter>
+    </None>
+    <None Include="G:\Dev\MenuNav\configfiles\display_oculus.ini">
+      <Filter>configfiles</Filter>
+    </None>
+    <None Include="G:\Dev\MenuNav\configfiles\interaction_desktop.ini">
+      <Filter>configfiles</Filter>
+    </None>
+    <None Include="G:\Dev\MenuNav\configfiles\interaction_oculus.ini">
+      <Filter>configfiles</Filter>
+    </None>
+    <None Include="G:\Dev\MenuNav\configfiles\SkeletonRightHand.ini">
+      <Filter>configfiles</Filter>
+    </None>
+    <None Include="G:\Dev\MenuNav\configfiles\SkeletonRightHand_new.ini">
+      <Filter>configfiles</Filter>
+    </None>
+    <None Include="G:\Dev\MenuNav\configfiles\vista.ini">
+      <Filter>configfiles</Filter>
+    </None>
+    <None Include="G:\Dev\MenuNav\configfiles\vista_oculus.ini">
+      <Filter>configfiles</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\appctx_timing.xml">
+      <Filter>configfiles\xml</Filter>
+    </XML>
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\appctx_viewerupdate.xml">
+      <Filter>configfiles\xml</Filter>
+    </XML>
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\applicationcontext_flystick.xml">
+      <Filter>configfiles\xml</Filter>
+    </XML>
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\applicationcontext_mouse.xml">
+      <Filter>configfiles\xml</Filter>
+    </XML>
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\doorstate_newcave.xml">
+      <Filter>configfiles\xml</Filter>
+    </XML>
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\generic_flystick_data_newcave.xml">
+      <Filter>configfiles\xml</Filter>
+    </XML>
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\generic_flystick_data_panasonic.xml">
+      <Filter>configfiles\xml</Filter>
+    </XML>
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\hand_leap_left.xml">
+      <Filter>configfiles\xml</Filter>
+    </XML>
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\hand_leap_left_desktop.xml">
+      <Filter>configfiles\xml</Filter>
+    </XML>
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\hand_leap_on_oculus_left.xml">
+      <Filter>configfiles\xml</Filter>
+    </XML>
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\hand_leap_on_oculus_right.xml">
+      <Filter>configfiles\xml</Filter>
+    </XML>
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\hand_leap_right.xml">
+      <Filter>configfiles\xml</Filter>
+    </XML>
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\hand_leap_right_desktop.xml">
+      <Filter>configfiles\xml</Filter>
+    </XML>
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\keyboard_standardinput.xml">
+      <Filter>configfiles\xml</Filter>
+    </XML>
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\mouse_trackball.xml">
+      <Filter>configfiles\xml</Filter>
+    </XML>
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\navigation_flystick2_aroundorigin.xml">
+      <Filter>configfiles\xml</Filter>
+    </XML>
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\ucp_newcave.xml">
+      <Filter>configfiles\xml</Filter>
+    </XML>
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\ucp_panasonic.xml">
+      <Filter>configfiles\xml</Filter>
+    </XML>
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\vfa_timing.xml">
+      <Filter>configfiles\xml</Filter>
+    </XML>
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\vw_viewerupdate.xml">
+      <Filter>configfiles\xml</Filter>
+    </XML>
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\worldpointer_mouse.xml">
+      <Filter>configfiles\xml</Filter>
+    </XML>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="configfiles\xml">
+      <UniqueIdentifier>{A8070612-A42B-4985-AECB-B09E7FA97564}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{3002BD47-495F-480F-A06C-75A57BF0B188}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="configfiles">
+      <UniqueIdentifier>{96838929-65CE-4B75-B9A9-A77FF88E6591}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

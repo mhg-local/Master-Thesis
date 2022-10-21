@@ -1,0 +1,3 @@
+$WCREV$
+$WCDATE$
+$WCURL$

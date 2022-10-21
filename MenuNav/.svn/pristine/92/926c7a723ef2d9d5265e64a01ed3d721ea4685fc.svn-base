@@ -1,0 +1,13 @@
+# Blender MTL File: 'debug.blend'
+# Material Count: 1
+newmtl Material_skin.jpg
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.705517 0.705517 0.705517
+Ks 0.318966 0.318966 0.318966
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd skin.jpg
+
+

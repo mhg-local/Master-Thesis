@@ -1,0 +1,103 @@
+<!-- $Id: navigator_spacenavigator.xml 31467 2012-08-07 09:38:46Z dr165799 $ -->
+<module>
+	<nodespace>
+	</nodespace>
+	<graph>
+		<node name="leap_source" type="DriverSensor">
+			<param name="sensor_name" value="LEAP_HAND_1"/>
+			<param name="type" value="HAND" />
+			<param name="driver" value="LEAP"/>
+		</node>
+		<node name="leap" type="HistoryProject">
+			<param name="project">WRIST_POSITION, ELBOW_POSITION, PALM_POSITION, ORIENTATION, FINGERS_TIP, FINGERS_DIRECTION, FINGERS_EXTENDED, FINGERS_JOINT_0, FINGERS_JOINT_1, FINGERS_JOINT_2, FINGERS_JOINT_3</param>
+		</node>
+
+
+    <node name="position_offset" type="ConstantValue[VistaVector3D]" >
+      <param name="value" value="0.0, .3, .0" />
+    </node>
+    <node name="orientation_offset" type="ConstantValue[VistaQuaternion]" >
+      <param name="value" value="0, 0.5, -1, 0" />
+    </node>
+		
+		<node name="get_platform_transform" type="GetTransform">
+			<param name="object" value="PLATFORM_OFFSET"/>
+			<param name="mode" value="WORLD"/>
+		</node>
+		
+		<node name="total_offset" type="Transform[VistaTransformMatrix,VistaVector3D]" />
+
+		<node name="offset" type="MatrixCompose" />
+
+		<node name="transform_elbow_position" type="Transform[VistaTransformMatrix,VistaVector3D]"/>
+		<node name="transform_wrist_position" type="Transform[VistaTransformMatrix,VistaVector3D]"/>
+		<node name="transform_position" type="Transform[VistaTransformMatrix,VistaVector3D]"/>
+		<node name="transform_orientation" type="Transform[VistaTransformMatrix,VistaQuaternion]"/>
+		<node name="transform_tips" type="Transform[VistaTransformMatrix,vector[VistaVector3D]]"/>
+		<node name="transform_directions" type="Transform[VistaTransformMatrix,vector[VistaVector3D]]"/>
+		<node name="transform_joint0" type="Transform[VistaTransformMatrix,vector[VistaVector3D]]"/>
+		<node name="transform_joint1" type="Transform[VistaTransformMatrix,vector[VistaVector3D]]"/>
+		<node name="transform_joint2" type="Transform[VistaTransformMatrix,vector[VistaVector3D]]"/>
+		<node name="transform_joint3" type="Transform[VistaTransformMatrix,vector[VistaVector3D]]"/>
+		
+		<node name="ConvertExtended" type="TypeConvert[vector[int],vector[bool]]"/>
+
+		<node name="hand" type="HandObject">
+			<param name="name" value="left_hand"/>
+		</node>
+		
+	</graph>
+	<edges>
+		<edge fromnode="leap_source" tonode="leap" fromport="history" toport="history"/>
+		
+		<edge fromnode="get_platform_transform" tonode="total_offset" fromport="transform" toport="first"/>
+		<edge fromnode="position_offset" tonode="total_offset" fromport="value" toport="second"/>
+		
+		<edge fromnode="total_offset" tonode="offset" fromport="out" toport="translation"/>
+		<edge fromnode="orientation_offset" tonode="offset" fromport="value" toport="orientation"/>
+
+		<edge fromnode="offset" tonode="transform_elbow_position" fromport="out" 				toport="first"/>
+		<edge fromnode="leap"   tonode="transform_elbow_position" fromport="ELBOW_POSITION" 	toport="second"/>
+		<edge fromnode="transform_elbow_position" tonode="hand"	fromport="out" 				toport="elbow_position"/>
+		
+		<edge fromnode="offset" tonode="transform_wrist_position" fromport="out" 				toport="first"/>
+		<edge fromnode="leap"   tonode="transform_wrist_position" fromport="WRIST_POSITION" 	toport="second"/>
+		<edge fromnode="transform_wrist_position" tonode="hand"	fromport="out" 				toport="wrist_position"/>
+		
+		<edge fromnode="offset" tonode="transform_position" fromport="out" 				toport="first"/>
+		<edge fromnode="leap"   tonode="transform_position" fromport="PALM_POSITION" 	toport="second"/>
+		<edge fromnode="transform_position" tonode="hand"	fromport="out" 				toport="palm_position"/>
+		
+		<edge fromnode="offset" tonode="transform_orientation" fromport="out" 			toport="first"/>
+		<edge fromnode="leap"   tonode="transform_orientation" fromport="ORIENTATION" 	toport="second"/>
+		<edge fromnode="transform_orientation" tonode="hand"	fromport="out" 			toport="palm_orientation"/>
+			
+		<edge fromnode="offset" tonode="transform_directions" fromport="out" 			toport="first"/>
+		<edge fromnode="leap"   tonode="transform_directions" fromport="FINGERS_DIRECTION" 	toport="second"/>
+		<edge fromnode="transform_tips" tonode="hand"	fromport="out" 					toport="finger_tip_directions"/>		
+		
+		<edge fromnode="offset" tonode="transform_tips" fromport="out" 					toport="first"/>
+		<edge fromnode="leap"   tonode="transform_tips" fromport="FINGERS_TIP" 			toport="second"/>
+		<edge fromnode="transform_tips" tonode="hand"	fromport="out" 					toport="finger_tips"/>
+		
+		<edge fromnode="leap" 	tonode="ConvertExtended" fromport="FINGERS_EXTENDED" 	toport="in"/>
+		<edge fromnode="ConvertExtended" tonode="hand"	fromport="out" 					toport="fingers_extended"/>
+		
+		<edge fromnode="offset" tonode="transform_joint0" fromport="out" 				toport="first"/>
+		<edge fromnode="leap"   tonode="transform_joint0" fromport="FINGERS_JOINT_0" 	toport="second"/>
+		<edge fromnode="transform_joint0" tonode="hand"	fromport="out" 					toport="joint_metacarpal"/>
+		
+		<edge fromnode="offset" tonode="transform_joint1" fromport="out" 				toport="first"/>
+		<edge fromnode="leap"   tonode="transform_joint1" fromport="FINGERS_JOINT_1" 	toport="second"/>
+		<edge fromnode="transform_joint1" tonode="hand"	fromport="out" 					toport="joint_proximal"/>
+		
+		<edge fromnode="offset" tonode="transform_joint2" fromport="out" 				toport="first"/>
+		<edge fromnode="leap"   tonode="transform_joint2" fromport="FINGERS_JOINT_2" 	toport="second"/>
+		<edge fromnode="transform_joint2" tonode="hand"	fromport="out" 					toport="joint_intermediate"/>
+		
+		<edge fromnode="offset" tonode="transform_joint3" fromport="out" 				toport="first"/>
+		<edge fromnode="leap"   tonode="transform_joint3" fromport="FINGERS_JOINT_3" 	toport="second"/>
+		<edge fromnode="transform_joint3" tonode="hand"	fromport="out" 					toport="joint_distal"/>
+
+	</edges>
+</module>

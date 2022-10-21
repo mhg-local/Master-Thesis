@@ -1,0 +1,184 @@
+/*============================================================================*/
+/*       1         2         3         4         5         6         7        */
+/*3456789012345678901234567890123456789012345678901234567890123456789012345678*/
+/*============================================================================*/
+/*                                             .                              */
+/*                                               RRRR WW  WW   WTTTTTTHH  HH  */
+/*                                               RR RR WW WWW  W  TT  HH  HH  */
+/*      Header   :	ProcessMicrophoneThread.h	 RRRR   WWWWWWWW  TT  HHHHHH  */
+/*                                               RR RR   WWW WWW  TT  HH  HH  */
+/*      Module   :  			                 RR  R    WW  WW  TT  HH  HH  */
+/*                                                                            */
+/*      Project  :  			                   Rheinisch-Westfaelische    */
+/*                                               Technische Hochschule Aachen */
+/*      Purpose  :                                                            */
+/*                                                                            */
+/*                                                 Copyright (c)  1998-2001   */
+/*                                                 by  RWTH-Aachen, Germany   */
+/*                                                 All rights reserved.       */
+/*                                             .                              */
+/*============================================================================*/
+/*                                                                            */
+/*    THIS SOFTWARE IS PROVIDED 'AS IS'. ANY WARRANTIES ARE DISCLAIMED. IN    */
+/*    NO CASE SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE FOR ANY DAMAGES.    */
+/*    REDISTRIBUTION AND USE OF THE NON MODIFIED TOOLKIT IS PERMITTED. OWN    */
+/*    DEVELOPMENTS BASED ON THIS TOOLKIT MUST BE CLEARLY DECLARED AS SUCH.    */
+/*                                                                            */
+/*============================================================================*/
+/* $Id: Hand.h 49363 2015-04-20 14:24:47Z dz762974 $ */
+
+#ifndef _HAND_H
+#define _HAND_H
+
+/*============================================================================*/
+/* FORWARD DECLARATIONS														  */
+/*============================================================================*/
+
+/*============================================================================*/
+/* INCLUDES																	  */
+/*============================================================================*/
+
+#include <VistaBase/VistaBaseTypes.h>
+#include <VistaBase/VistaVectorMath.h>
+#include <VistaDataFlowNet/VdfnNodeFactory.h>
+
+#include <vector>
+
+class VistaSceneGraph;
+class VistaTransformNode;
+class VistaGroupNode;
+class VistaColor;
+class VpmPullDownMenu;
+
+/*============================================================================*/
+/* CLASS DEFINITION															  */
+/*============================================================================*/
+class Hand
+{
+public:
+	// we use our own node for the hand - for now, making the hand an ActionObject
+	// would work, too, but with a custom node we can better control our capabilities
+	// (e.g. provides finger data or not) and may merge data of nodes from different
+	// dfn graphs/devices in the future
+	class DfnNodeCreate : public VdfnNodeFactory::IVdfnNodeCreator
+	{
+	public:
+		DfnNodeCreate();
+		DfnNodeCreate( const std::vector< Hand* >& vecHands );
+		void AddHand( Hand* pHand );
+		virtual IVdfnNode* CreateNode( const VistaPropertyList &oParams ) const;
+	private:
+		class Node;
+		std::vector< Hand* > m_vecHands;
+	};
+public:
+	
+	Hand( const std::string& sName);
+	
+	void SetIsLeft(bool isLeft);
+	std::string GetName() const;
+	VistaType::microtime GetLastUpdateTime() const;
+	void SetLastUpdateTime( const VistaType::microtime& oValue );
+
+
+	void SetPalmVisible( bool vis );
+
+	VistaVector3D GetPalmPosition() const;
+	void SetPalmPosition( const VistaVector3D& oValue );
+	VistaQuaternion GetPalmOrientation() const;
+	void SetPalmOrientation( const VistaQuaternion& oValue );
+	
+	enum Finger
+	{
+		THUMB = 0,
+		INDEX,
+		MIDDLE,
+		RING,
+		PINKY,
+	};
+	bool GetDoesProvideFingerTipData() const;
+	void SetDoesProvideFingerTipData( const bool oValue );
+
+	const std::vector< VistaVector3D >& GetFingerTips() const;
+	const VistaVector3D& GetFingerTip( const Finger eFinger ) const;
+	void SetFingerTips( const std::vector< VistaVector3D >& vecPositions );
+
+	const std::vector< VistaVector3D >& GetFingerDirection() const;
+	const VistaVector3D& GetFingerDirection( const Finger eFinger ) const;
+	void SetFingerDirections( const std::vector< VistaVector3D >& vecDirections );
+
+	const std::vector< bool >& GetFingersAreExtended() const;
+	const bool GetFingerIsExtended( const Finger eFinger ) const;
+	void SetFingersAreExtended( const std::vector< bool >& vecFingers );
+
+	
+	bool GetDoesProvideJointData() const { return m_bDoesProvideJointData; }
+	void SetDoesProvideJointData( const bool oValue ) { m_bDoesProvideJointData = oValue; }
+	
+	const std::vector< VistaVector3D >& GetDistalJoints() const { return m_vecJointData[3]; }
+	const VistaVector3D& GetDistalJoint( const Finger eFinger ) const { return m_vecJointData[3][eFinger]; }
+	void SetDistalJoints( const std::vector< VistaVector3D >& vecPositions ) { if( vecPositions.size() == 5 ) m_vecJointData[3] = vecPositions; }
+
+	const std::vector< VistaVector3D >& GetIntermediateJoints() const { return m_vecJointData[2]; }
+	const VistaVector3D& GetIntermediateJoint( const Finger eFinger ) const { return m_vecJointData[2][eFinger]; }
+	void SetIntermediateJoints( const std::vector< VistaVector3D >& vecPositions ) { if( vecPositions.size() == 5 ) m_vecJointData[2] = vecPositions; }
+
+	const std::vector< VistaVector3D >& GetProximalJoints() const { return m_vecJointData[1]; }
+	const VistaVector3D& GetProximalJoint( const Finger eFinger ) const { return m_vecJointData[1][eFinger]; }
+	void SetProximalJoints( const std::vector< VistaVector3D >& vecPositions ) { if( vecPositions.size() == 5 ) m_vecJointData[1] = vecPositions; }
+
+	const std::vector< VistaVector3D >& GetMetacarpalJoints() const { return m_vecJointData[0]; }
+	const VistaVector3D& GetMetacarpalJoint( const Finger eFinger ) const { return m_vecJointData[0][eFinger]; }
+	void SetMetacarpalJoints( const std::vector< VistaVector3D >& vecPositions ) { if( vecPositions.size() == 5 ) m_vecJointData[0] = vecPositions; }
+
+	void CreateSimpleVisualization( VistaGroupNode* pParent, 
+									VistaSceneGraph* pSG,
+									const VistaColor& oColor,
+									const VistaVector3D& v3PalmSize = VistaVector3D( 0.08f, 0.012f, 0.08f) );
+	void SetSimpleHandVisualizationVisible(bool val);
+
+	void UpdateHandVisualization();
+	
+	VistaVector3D GetV3WristPosition() const { return m_v3WristPosition; }
+	void SetV3WristPosition( const VistaVector3D& oValue ) { m_v3WristPosition = oValue; }
+	VistaVector3D GetV3ElbowPosition() const { return m_v3ElbowPosition; }
+	void SetV3ElbowPosition( const VistaVector3D& oValue ) { m_v3ElbowPosition = oValue; }
+	
+
+	void SetFingerPointing2Menu( const Finger eFinger, VpmPullDownMenu* m_pPullDownMenu );
+	void SetFingersDoNotPointToMenu( VpmPullDownMenu* m_pPullDownMenu );
+	void SetNothingPointing2Menu( VpmPullDownMenu* m_pPullDownMenu );
+	bool IsLeftHand() { return m_bIsleft; }
+	
+private:
+	std::string m_sName;
+
+	VistaType::microtime m_nLastUpdateTime;
+
+	VistaVector3D m_v3WristPosition;
+	VistaVector3D m_v3ElbowPosition;
+	VistaVector3D m_v3PalmPosition;
+	VistaQuaternion m_qPalmOrientation;
+
+	bool m_bDoesProvideFingerTipData;
+	std::vector< VistaVector3D > m_vecFingerTips;
+	std::vector< VistaVector3D > m_vecFingerTipDirections;
+	std::vector< bool > m_vecFingersAreExtended;
+
+	bool m_bDoesProvideJointData;
+	std::vector< std::vector< VistaVector3D > > m_vecJointData;
+
+	VistaTransformNode* m_pPalmTransform;
+	std::vector< std::vector< VistaTransformNode* > > m_vecVizualizationFingerTransforms;
+	float m_nFingerRadius;
+
+	bool m_bIsleft;
+	bool m_bUpdateSimpleHandVis;
+	std::vector< VpmPullDownMenu* > m_vecFingerPointing2Menu;
+};
+
+#endif // _HAND_H
+
+/*============================================================================*/
+/* END OF FILE																  */
+/*============================================================================*/

@@ -1,0 +1,111 @@
+/*============================================================================*/
+/*       1         2         3         4         5         6         7        */
+/*3456789012345678901234567890123456789012345678901234567890123456789012345678*/
+/*============================================================================*/
+/*                                             .                              */
+/*                                               RRRR WW  WW   WTTTTTTHH  HH  */
+/*                                               RR RR WW WWW  W  TT  HH  HH  */
+/*      Header   :	ProcessMicrophoneThread.h	 RRRR   WWWWWWWW  TT  HHHHHH  */
+/*                                               RR RR   WWW WWW  TT  HH  HH  */
+/*      Module   :  			                 RR  R    WW  WW  TT  HH  HH  */
+/*                                                                            */
+/*      Project  :  			                   Rheinisch-Westfaelische    */
+/*                                               Technische Hochschule Aachen */
+/*      Purpose  :                                                            */
+/*                                                                            */
+/*                                                 Copyright (c)  1998-2001   */
+/*                                                 by  RWTH-Aachen, Germany   */
+/*                                                 All rights reserved.       */
+/*                                             .                              */
+/*============================================================================*/
+/*                                                                            */
+/*    THIS SOFTWARE IS PROVIDED 'AS IS'. ANY WARRANTIES ARE DISCLAIMED. IN    */
+/*    NO CASE SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE FOR ANY DAMAGES.    */
+/*    REDISTRIBUTION AND USE OF THE NON MODIFIED TOOLKIT IS PERMITTED. OWN    */
+/*    DEVELOPMENTS BASED ON THIS TOOLKIT MUST BE CLEARLY DECLARED AS SUCH.    */
+/*                                                                            */
+/*============================================================================*/
+/* $Id$ */
+
+#ifndef _HANDINTERACTIONMANAGER_H
+#define _HANDINTERACTIONMANAGER_H
+
+/*============================================================================*/
+/* FORWARD DECLARATIONS														  */
+/*============================================================================*/
+
+/*============================================================================*/
+/* INCLUDES																	  */
+/*============================================================================*/
+#include <VistaAspects/VistaUncopyable.h>
+
+#include <VistaBase/VistaTransformMatrix.h>
+#include <VistaKernel/EventManager/VistaEventHandler.h>
+#include <VistaBase/VistaBaseTypes.h>
+
+#include <vector>
+#include <array>
+
+
+class Hand;
+
+/*===========================================================================*/
+/* CLASS DEFINITION															  */
+/*============================================================================*/
+class HandInteractionManager : public VistaEventHandler
+{
+	VISTA_UNCOPYABLE( HandInteractionManager );
+public:
+	HandInteractionManager();
+	virtual ~HandInteractionManager();
+
+	void RegisterHand( Hand* pHand );
+	void UnregisterHand( Hand* pHand );
+
+	void Update();
+	virtual void HandleEvent( VistaEvent *pEvent );
+
+private:
+	enum Gesture
+	{
+		GESTURE_NONE,
+		GESTURE_GRAB,
+		GESTURE_FILL_LEVEL_SNAP,
+		GESTURE_FILL_LEVEL_FREE,
+	};
+	struct HandData
+	{
+		HandData();
+
+		Hand* m_pHand;
+		VistaType::microtime m_nLastCheckedHandUpdateTime;
+		Gesture m_eActiveGesture;
+
+	};
+
+	void DetectAllHandGestures();
+	void DetectHandGesture( HandData& oHand );
+	void CheckForGrabGesture( HandData& oHand );
+	void CheckForFillLevelGesture( HandData& oHand );
+
+	void PerformAllHandGestureInteractions();
+	void PerformGestureInteraction( HandData& oHand );
+
+	void EndActiveGesture( HandData& oHand );
+		
+	void UpdateAllHandPointers();
+	void UpdateHandPointers( HandData& oHand );
+
+	void UpdatePointer( HandData& oHand );
+	void SetFingerToDisabledState(  HandData& oHand, int nFingerIndex );
+
+private:
+	std::vector< HandData > m_vecHands;
+	float m_nTableHeight;
+};
+
+#endif // _HANDINTERACTIONMANAGER_H
+
+/*============================================================================*/
+/* END OF FILE																  */
+/*============================================================================*/

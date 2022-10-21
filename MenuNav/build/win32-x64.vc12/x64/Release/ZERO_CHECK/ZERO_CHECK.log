@@ -1,0 +1,10 @@
+﻿Build started 2/25/2017 7:12:04 PM.
+     1>Project "G:\Dev\MenuNav\build\win32-x64.vc12\ZERO_CHECK.vcxproj" on node 2 (Build target(s)).
+     1>CustomBuild:
+         Checking Build System
+         CMake does not need to re-run because G:/Dev/MenuNav/build/win32-x64.vc12/CMakeFiles/generate.stamp is up-to-date.
+     1>Done Building Project "G:\Dev\MenuNav\build\win32-x64.vc12\ZERO_CHECK.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.47

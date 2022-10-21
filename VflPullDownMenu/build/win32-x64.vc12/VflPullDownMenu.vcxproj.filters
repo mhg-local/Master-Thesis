@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\VpmGlobalConfiguration.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\VpmPullDownMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\VpmPullDownMenuView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\VpmAnimation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\VpmTimer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Elements\VpmBaseButtonElement.cpp">
+      <Filter>Source Files\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Elements\VpmCheckBoxElement.cpp">
+      <Filter>Source Files\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Elements\VpmElement.cpp">
+      <Filter>Source Files\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Elements\VpmElementView.cpp">
+      <Filter>Source Files\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Elements\VpmLabelElement.cpp">
+      <Filter>Source Files\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Elements\VpmRadioButtonElement.cpp">
+      <Filter>Source Files\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Elements\VpmScalerElement.cpp">
+      <Filter>Source Files\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Elements\VpmSliderElement.cpp">
+      <Filter>Source Files\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Elements\VpmSoildButtonElement.cpp">
+      <Filter>Source Files\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Elements\VpmTextureButtonElement.cpp">
+      <Filter>Source Files\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\FocusStrategy\VwFocusStrategy.cpp">
+      <Filter>Source Files\FocusStrategy</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\FocusStrategy\VwFocusStrategyUtility.cpp">
+      <Filter>Source Files\FocusStrategy</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\FocusStrategy\VwHandleSignal.cpp">
+      <Filter>Source Files\FocusStrategy</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Widget\VwBorderView.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Widget\VwBorderWidget.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Widget\VwCheckBoxWidget.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Widget\VwCheckBoxWidgetControl.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Widget\VwCheckBoxWidgetView.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Widget\VwCircleWidget.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Widget\VwCircleWidgetView.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Widget\VwPlaneWidgetControl.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Widget\VwScalerWidgetControl.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Widget\VwSliderWidgetControl.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Widget\VwTexturePlaneWidget.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Widget\VwTexturePlaneWidgetControl.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Widget\VwWidgetControl.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Widget\VwScalerWidget.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\VflPullDownMenu\Widget\VwScalerWidgetView.cpp">
+      <Filter>Source Files\Widget</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\VglConfig.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\VpmGlobalConfiguration.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\VpmPullDownMenu.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\VpmPullDownMenuView.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\VpmAnimation.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\VpmTimer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Elements\VpmBaseButtonElement.h">
+      <Filter>Source Files\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Elements\VpmCheckBoxElement.h">
+      <Filter>Source Files\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Elements\VpmElement.h">
+      <Filter>Source Files\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Elements\VpmElementView.h">
+      <Filter>Source Files\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Elements\VpmLabelElement.h">
+      <Filter>Source Files\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Elements\VpmRadioButtonElement.h">
+      <Filter>Source Files\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Elements\VpmScalerElement.h">
+      <Filter>Source Files\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Elements\VpmSliderElement.h">
+      <Filter>Source Files\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Elements\VpmSoildButtonElement.h">
+      <Filter>Source Files\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Elements\VpmTextureButtonElement.h">
+      <Filter>Source Files\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\FocusStrategy\VwFocusStrategy.h">
+      <Filter>Source Files\FocusStrategy</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\FocusStrategy\VwFocusStrategyUtility.h">
+      <Filter>Source Files\FocusStrategy</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\FocusStrategy\VwHandleSignal.h">
+      <Filter>Source Files\FocusStrategy</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Widget\VwBorderView.h">
+      <Filter>Source Files\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Widget\VwBorderWidget.h">
+      <Filter>Source Files\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Widget\VwCheckBoxWidget.h">
+      <Filter>Source Files\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Widget\VwCheckBoxWidgetControl.h">
+      <Filter>Source Files\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Widget\VwCheckBoxWidgetView.h">
+      <Filter>Source Files\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Widget\VwCircleWidget.h">
+      <Filter>Source Files\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Widget\VwCircleWidgetView.h">
+      <Filter>Source Files\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Widget\VwPlaneWidgetControl.h">
+      <Filter>Source Files\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Widget\VwScalerWidgetControl.h">
+      <Filter>Source Files\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Widget\VwSliderWidgetControl.h">
+      <Filter>Source Files\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Widget\VwTexturePlaneWidget.h">
+      <Filter>Source Files\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Widget\VwTexturePlaneWidgetControl.h">
+      <Filter>Source Files\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Widget\VwWidgetControl.h">
+      <Filter>Source Files\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Widget\VwScalerWidget.h">
+      <Filter>Source Files\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Dev\VflPullDownMenu\Widget\VwScalerWidgetView.h">
+      <Filter>Source Files\Widget</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\Dev\VflPullDownMenu\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="G:\Dev\VflPullDownMenu\_SourceFiles.cmake">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="G:\Dev\VflPullDownMenu\Elements\_SourceFiles.cmake">
+      <Filter>Source Files\Elements</Filter>
+    </None>
+    <None Include="G:\Dev\VflPullDownMenu\FocusStrategy\_SourceFiles.cmake">
+      <Filter>Source Files\FocusStrategy</Filter>
+    </None>
+    <None Include="G:\Dev\VflPullDownMenu\Widget\_SourceFiles.cmake">
+      <Filter>Source Files\Widget</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{61AB571A-1C12-4835-9D17-6F1CC877F593}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Elements">
+      <UniqueIdentifier>{B7C2FB92-6843-49AF-8B98-D02A321F0474}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\FocusStrategy">
+      <UniqueIdentifier>{5ECF1EBA-691E-4E22-A058-EAC308515540}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Widget">
+      <UniqueIdentifier>{4E95ABFB-8143-4EC2-BE78-7FE13EC8CE42}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

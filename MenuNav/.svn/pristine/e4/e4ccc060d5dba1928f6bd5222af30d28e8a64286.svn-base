@@ -1,0 +1,28 @@
+# $Id$
+
+set( RelativeDir "." )
+set( RelativeSourceGroup "Source Files" )
+
+set( DirFiles
+	_HMDNav.cpp
+	_HMDNav.h
+	Hand.cpp
+	Hand.h
+	HandInteractionManager.cpp
+	HandInteractionManager.h
+	main.cpp
+	InitConstants.cpp
+	InitConstants.h
+	setup.ini
+	KeyboardCallbacks.h
+	_SourceFiles.cmake
+)
+set( DirFiles_SourceGroup "${RelativeSourceGroup}" )
+
+set( LocalSourceGroupFiles  )
+foreach( File ${DirFiles} )
+	list( APPEND LocalSourceGroupFiles "${RelativeDir}/${File}" )
+	list( APPEND ProjectSources "${RelativeDir}/${File}" )
+endforeach()
+source_group( ${DirFiles_SourceGroup} FILES ${LocalSourceGroupFiles} )
+

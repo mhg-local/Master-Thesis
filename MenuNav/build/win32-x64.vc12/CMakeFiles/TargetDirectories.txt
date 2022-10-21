@@ -1,0 +1,15 @@
+G:/Dev/MenuNav/build/win32-x64.vc12/CMakeFiles/external_VistaDeviceDriversBase.dir
+G:/Dev/MenuNav/build/win32-x64.vc12/CMakeFiles/external_VistaBase.dir
+G:/Dev/MenuNav/build/win32-x64.vc12/CMakeFiles/MenuNav.dir
+G:/Dev/MenuNav/build/win32-x64.vc12/CMakeFiles/external_VistaTools.dir
+G:/Dev/MenuNav/build/win32-x64.vc12/CMakeFiles/external_VistaMath.dir
+G:/Dev/MenuNav/build/win32-x64.vc12/CMakeFiles/ALL_BUILD.dir
+G:/Dev/MenuNav/build/win32-x64.vc12/CMakeFiles/external_VistaInterProcComm.dir
+G:/Dev/MenuNav/build/win32-x64.vc12/CMakeFiles/external_VistaWidgets.dir
+G:/Dev/MenuNav/build/win32-x64.vc12/CMakeFiles/external_VistaDataFlowNet.dir
+G:/Dev/MenuNav/build/win32-x64.vc12/CMakeFiles/external_VistaKernelOpenSGExt.dir
+G:/Dev/MenuNav/build/win32-x64.vc12/CMakeFiles/external_VistaKernel.dir
+G:/Dev/MenuNav/build/win32-x64.vc12/CMakeFiles/ZERO_CHECK.dir
+G:/Dev/MenuNav/build/win32-x64.vc12/CMakeFiles/external_VistaAspects.dir
+G:/Dev/MenuNav/build/win32-x64.vc12/CMakeFiles/external_VflPullDownMenu.dir
+G:/Dev/MenuNav/build/win32-x64.vc12/CMakeFiles/external_VistaOGLExt.dir

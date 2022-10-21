@@ -1,0 +1,22 @@
+<!-- $Id: appctx_viewerupdate.xml 32790 2012-11-18 12:27:23Z sp841227 $ -->
+<module>
+	<nodespace>
+	</nodespace>
+	<graph>
+    
+		<node name="viewer" type="ViewerSource">
+			<param name="displaysystem" value="MAIN" />
+		</node>
+
+		<node name="application_context_node" type="application_context">
+			<param name="object" value="application_context_object"/>
+		</node>
+
+	</graph>
+	<edges>
+	
+      <edge fromnode="viewer"  tonode="application_context_node" fromport="orientation" toport="viewer_ori" />
+      <edge fromnode="viewer"  tonode="application_context_node" fromport="position" toport="viewer_pos" />
+	  
+	</edges>
+</module>

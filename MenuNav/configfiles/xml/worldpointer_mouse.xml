@@ -1,0 +1,84 @@
+<!-- $Id: worldpointer_mouse.xml 24699 2012-01-17 13:05:30Z dr165799 $ -->
+<module>
+	<nodespace>
+	</nodespace>
+	<graph>
+		<!-- data source... a mouse -->
+		<node name="mouse_source" type="DriverSensor">
+			<param name="sensor_index" value="0"/>
+			<param name="driver" value="MOUSE"/>
+		</node>
+		<node name="mouse" type="HistoryProject">
+			<param name="project">X_POS, Y_POS, LEFT_BUTTON, MIDDLE_BUTTON, RIGHT_BUTTON</param>
+		</node>
+		<!--<node name="dd" type="DeviceDebug"/>-->
+		
+		<node name="3dmouse" type="3DMouseTransform">
+			<param name="displaysystem" value="MAIN"/>
+			<param name="viewport" value="MAIN_VIEWPORT"/>
+			<param name="origin_offset_along_ray" value="0"/>
+			<param name="in_world_coordinates" value="true"/>
+		</node>
+		
+		<node name="changedetect_button0" type="ChangeDetect[bool]"/>
+		<node name="changedetect_button1" type="ChangeDetect[bool]"/>
+		<node name="changedetect_button2" type="ChangeDetect[bool]"/>
+		
+		<node name="PrimarySelect" type="WidgetsInputSlotSink[bool]">
+			<param name="virtual_device" 	value="PrimaryPointer"/>
+			<param name="input_slot"		value="Select"/>
+		</node>
+
+    <node name="PrimarySelectRight" type="WidgetsInputSlotSink[bool]">
+      <param name="virtual_device" 	value="PrimaryPointer"/>
+      <param name="input_slot"		value="SelectRight"/>
+    </node>
+		
+		 <node name="PrimarySelectMiddle" type="WidgetsInputSlotSink[bool]">
+      <param name="virtual_device" 	value="PrimaryPointer"/>
+      <param name="input_slot"		value="SelectMiddle"/>
+    </node>
+<!--		
+		<node name="PrimaryPosition"	type="WidgetsInputSlotSink[VistaVector3D]">
+			<param name="virtual_device" 	value="PrimaryPointer"/>
+			<param name="input_slot"		value="position"/>
+		</node>
+		
+		<node name="PrimaryOrientation"	type="WidgetsInputSlotSink[VistaQuaternion]">
+			<param name="virtual_device" 	value="PrimaryPointer"/>
+			<param name="input_slot"		value="orientation"/>
+		</node>
+-->
+		<node name="PrimaryPose"	type="WidgetsInputSlotSink[VistaTransformMatrix]">
+			<param name="virtual_device" 	value="PrimaryPointer"/>
+			<param name="input_slot"		value="Pose"/>
+		</node>
+		
+		<node name="PoseComposer"	type="MatrixCompose"/>
+	</graph>
+	<edges> 
+		<!-- connect mouse -|
+		             mode   -> project -->
+		<edge fromnode="mouse_source" tonode="mouse" fromport="history" toport="history"/>
+		<!--<edge fromnode="mouse_source" tonode="dd" fromport="history" toport="history"/>-->
+		<edge fromnode="mouse" tonode="3dmouse" fromport="X_POS" toport="x_pos"/>
+		<edge fromnode="mouse" tonode="3dmouse" fromport="Y_POS" toport="y_pos"/>
+
+		<edge fromnode="mouse" tonode="changedetect_button0" fromport="LEFT_BUTTON" toport="in"/>
+		<edge fromnode="mouse" tonode="changedetect_button2" fromport="MIDDLE_BUTTON" toport="in"/>
+		<edge fromnode="mouse" tonode="changedetect_button1" fromport="RIGHT_BUTTON" toport="in"/>
+
+		<edge fromnode="3dmouse" tonode="PoseComposer" fromport="orientation" toport="orientation"/>
+		<edge fromnode="3dmouse" tonode="PoseComposer" fromport="position" toport="translation"/>
+		
+		<edge fromnode="PoseComposer" tonode="PrimaryPose" fromport="out" toport="value"/>
+		
+		<edge fromnode="changedetect_button0" tonode="PrimarySelect" fromport="out" toport="value"/>
+    <edge fromnode="changedetect_button1" tonode="PrimarySelectRight" fromport="out" toport="value"/>
+		 <edge fromnode="changedetect_button2" tonode="PrimarySelectMiddle" fromport="out" toport="value"/>
+		<!--
+		<edge fromnode="3dmouse" tonode="PrimaryOrientation" fromport="orientation" toport="orientation"/>
+		<edge fromnode="3dmouse" tonode="PrimaryPosition" fromport="position" toport="position"/>
+		-->
+	</edges>
+</module>

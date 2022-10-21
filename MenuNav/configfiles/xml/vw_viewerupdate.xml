@@ -1,0 +1,30 @@
+<module>
+
+	<nodespace>
+	</nodespace>
+	
+	<graph>
+	
+    	<node name="viewer" type="ViewerSource">
+			<param name="displaysystem" value="MAIN" />
+		</node>
+
+		<node name="ViewerPose"	type="WidgetsInputSlotSink[VistaTransformMatrix]">
+			<param name="virtual_device" 	value="Viewer"/>
+			<param name="input_slot"		value="Pose"/>
+		</node>
+		
+		<node name="PoseComposer"	type="MatrixCompose"/>
+		
+	</graph>
+	
+	<edges>
+
+		<edge fromnode="viewer"  tonode="PoseComposer" fromport="orientation" toport="orientation" />
+		<edge fromnode="viewer"  tonode="PoseComposer" fromport="position" toport="translation" />
+	  
+		<edge fromnode="PoseComposer" tonode="ViewerPose" fromport="out" toport="value"/>
+
+	</edges>
+	
+</module>

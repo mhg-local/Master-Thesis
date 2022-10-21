@@ -1,0 +1,184 @@
+/*============================================================================*/
+/*                              ViSTA VR toolkit                              */
+/*               Copyright (c) 1997-2010 RWTH Aachen University               */
+/*============================================================================*/
+/*                                  License                                   */
+/*                                                                            */
+/*  This program is free software: you can redistribute it and/or modify      */
+/*  it under the terms of the GNU Lesser General Public License as published  */
+/*  by the Free Software Foundation, either version 3 of the License, or      */
+/*  (at your option) any later version.                                       */
+/*                                                                            */
+/*  This program is distributed in the hope that it will be useful,           */
+/*  but WITHOUT ANY WARRANTY; without even the implied warranty of            */
+/*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             */
+/*  GNU Lesser General Public License for more details.                       */
+/*                                                                            */
+/*  You should have received a copy of the GNU Lesser General Public License  */
+/*  along with this program.  If not, see <http://www.gnu.org/licenses/>.     */
+/*============================================================================*/
+/*                                Contributors                                */
+/*                                                                            */
+/*============================================================================*/
+/*
+ * $Id$
+ */
+
+#include "_HMDNav.h"
+
+#include "Hand.h"
+#include "HandInteractionManager.h"
+#include "KeyboardCallbacks.h"
+
+#include <VistaBase/VistaExceptionBase.h>
+#include <VistaBase/VistaReferenceFrame.h>
+#include <VistaBase/VistaVectorMath.h>
+#include <VistaBase/VistaQuaternion.h>
+#include <VistaBase/VistaUtilityMacros.h>
+
+#include <VistaAspects/VistaPropertyAwareable.h>
+
+#include <VistaTools/VistaIniFileParser.h>
+#include <VistaTools/VistaRandomNumberGenerator.h>
+#include <VistaTools/VistaFileSystemDirectory.h>
+
+#include <VistaDataFlowNet/VdfnObjectRegistry.h>
+
+#include <VistaKernel/DisplayManager/VistaDisplaySystem.h>
+#include <VistaKernel/DisplayManager/VistaVirtualPlatform.h>
+#include <VistaKernel/Cluster/VistaClusterMode.h>
+#include <VistaKernel/VistaSystem.h>
+#include <VistaKernel/GraphicsManager/VistaSceneGraph.h>
+#include <VistaKernel/GraphicsManager/VistaGeometry.h>
+#include <VistaKernel/GraphicsManager/VistaTransformNode.h>
+#include <VistaKernel/GraphicsManager/VistaGeomNode.h>
+#include <VistaKernel/GraphicsManager/VistaLightNode.h>
+#include <VistaKernel/DisplayManager/VistaDisplayManager.h>
+#include <VistaKernel/DisplayManager/VistaWindow.h>
+#include <VistaKernel/DisplayManager/VistaWindowingToolkit.h>
+#include <VistaKernel/InteractionManager/VistaUserPlatform.h>
+#include <VistaKernel/InteractionManager/VistaVirtualPlatformAdapter.h>
+#include <VistaKernel/InteractionManager/VistaKeyboardSystemControl.h>
+#include <VistaKernel/EventManager/VistaSystemEvent.h>
+#include <VistaKernel/EventManager/VistaEventManager.h>
+#include <VistaKernel/EventManager/VistaEventHandler.h>
+
+#include <VistaKernelOpenSGExt/VistaOpenSGModelOptimizer.h>
+
+#include <VistaOGLExt/VistaShaderRegistry.h>
+
+#include <VistaInterProcComm/Concurrency/VistaThreadLoop.h>
+#include <VistaInterProcComm/Concurrency/VistaMutex.h>
+
+#include <math.h>
+#include <cassert>
+
+/*============================================================================*/
+/* MACROS AND DEFINES, CONSTANTS AND STATICS, FUNCTION-PROTOTYPES             */
+/*============================================================================*/
+
+/*============================================================================*/
+/* IMPLEMENTATION                                                             */
+/*============================================================================*/
+
+HMDNav::HMDNav()
+: m_pVistaSystem( new VistaSystem() )
+, m_sIniFile("setup.ini")
+, m_pLeftHand( nullptr )
+, m_pRightHand( nullptr )
+, m_pHandInteraction( new HandInteractionManager() )
+{	
+	if (!LoadConfigSettings(m_InitConstants, m_sIniFile))
+	{
+		vstr::err() << "Warning: Cannot read init file: " << m_sIniFile << std::endl;
+		VISTA_THROW("No init file found!", 2);
+	}
+
+	m_pVistaSystem->GetEventManager()->AddEventHandler( m_pHandInteraction, VistaSystemEvent::GetTypeId(), VistaSystemEvent::VSE_POSTAPPLICATIONLOOP );
+}
+
+HMDNav::~HMDNav()
+{
+	delete m_pHandInteraction;
+
+	delete m_pLeftHand;
+	delete m_pRightHand;
+	
+	m_pVistaSystem->GetEventManager()->RemEventHandler( m_pHandInteraction, VistaSystemEvent::GetTypeId(), VistaSystemEvent::VSE_POSTAPPLICATIONLOOP );
+
+	delete m_pVistaSystem;
+}
+
+void HMDNav::Run()
+{
+	m_pVistaSystem->Run();
+}
+
+bool HMDNav::Init(int argc, char  *argv[])
+{
+	// ViSTA's standard intro message
+	m_pVistaSystem->IntroMsg();
+
+	if( !m_pVistaSystem->Init( argc, argv ) )
+		return false;
+
+	VistaWindow* pOcuWin = m_pVistaSystem->GetDisplayManager()->GetWindowByName("MAIN_WINDOW");
+	if (pOcuWin)
+		m_pVistaSystem->GetDisplayManager()->GetWindowingToolkit()->BindWindow(pOcuWin);
+
+	if( m_pVistaSystem->GetDisplayManager()->GetDisplaySystem() == NULL )
+	{
+		vstr::errp() << "Could not create Display" << std::endl;
+		return false;
+	}
+
+	m_pLeftHand = new Hand( "left_hand" );
+	m_pRightHand = new Hand( "right_hand" );
+
+	VistaShaderRegistry::GetInstance().AddSearchDirectory("./resources/shader/");
+
+ 	VistaUserPlatform* pUserPlatform = m_pVistaSystem->GetPlatformFor(m_pVistaSystem->GetDisplayManager()->GetDisplaySystem());
+ 	m_pVistaSystem->GetDfnObjectRegistry()->SetObject("PLATFORM_OFFSET", nullptr, pUserPlatform->GetPlatformNode() /* ->GetPlatformNode()*/);
+	
+	// create some basic scene
+	CreateScene();
+
+	// create some basic keyboard navigation
+	VistaKeyboardSystemControl* pCtrl = m_pVistaSystem->GetKeyboardSystemControl();
+	pCtrl->BindAction(VISTA_KEY_DOWNARROW, new ConfigSceneTranslation(VistaVector3D(-0.01f, 0.f, 0.f), m_pVistaSystem), "translate in scene's global Z direction");
+	pCtrl->BindAction(VISTA_KEY_UPARROW, new ConfigSceneTranslation(VistaVector3D(0.01f, 0.f, 0.f), m_pVistaSystem), "translate in scene's global -Z direction");
+	pCtrl->BindAction(VISTA_KEY_LEFTARROW, new ConfigSceneTranslation(VistaVector3D(0.f, 0.f, -0.01f), m_pVistaSystem), "translate in scene's global X direction");
+	pCtrl->BindAction(VISTA_KEY_RIGHTARROW, new ConfigSceneTranslation(VistaVector3D(0.f, 0.f, 0.01f), m_pVistaSystem), "translate in scene's global -X direction");
+	pCtrl->BindAction(VISTA_KEY_PAGEUP, new ConfigSceneTranslation(VistaVector3D(0.f, 0.01f, 0.f), m_pVistaSystem), "translate in scene's global Y direction");
+	pCtrl->BindAction(VISTA_KEY_PAGEDOWN, new ConfigSceneTranslation(VistaVector3D(0.f, -0.01f, 0.f), m_pVistaSystem), "translate in scene's global -Y direction");
+
+	return true;
+}
+
+void HMDNav::CreateScene()
+{
+	VistaSceneGraph* pSG = m_pVistaSystem->GetGraphicsManager()->GetSceneGraph();
+
+	// create a light
+	VistaPointLight* pLight = pSG->NewPointLight(pSG->GetRoot());
+	pLight->SetPosition(VistaVector3D(5, 24, 17));
+	pLight->SetAmbientColor(0.2f, 0.2f, 0.2f);
+	pLight->SetDiffuseColor(0.625f, 0.625f, 0.6f);
+	pLight->SetSpecularColor(0.9f, 0.9f, 0.9f);
+
+	// setup hands
+	Hand::DfnNodeCreate* pCreate = new Hand::DfnNodeCreate();
+	pCreate->AddHand(m_pLeftHand);
+	pCreate->AddHand(m_pRightHand);
+	VdfnNodeFactory::GetSingleton()->SetNodeCreator("HandObject", pCreate);
+
+	// setup and disable the model hands
+	m_pLeftHand->CreateSimpleVisualization(pSG->GetRoot(), pSG, VistaColor::WHITE);
+	m_pRightHand->CreateSimpleVisualization(pSG->GetRoot(), pSG, VistaColor::WHITE);
+}
+
+/*============================================================================*/
+/*  END OF FILE							                                      */
+/*============================================================================*/
+
+

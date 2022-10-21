@@ -1,0 +1,15 @@
+[SCENE]
+
+SCENE_MODEL_FILE = resources/models/stickyfingers/stickyfingers_no_drums_tri.ac
+SCENE_OFFSET = 0, 0, 0
+SCENE_ROTATION = 0, 0, 0, 1
+
+TABLE_MODEL_FILE = resources/models/simple_with_stand.ac
+TABLE_OFFSET = -7.9, 3.02, 1.55
+TABLE_ROTATION = 0, 0, 0, 1
+TABLE_DIMENSIONS = 0.75, 0.87, 1.2
+
+PROTOTYPE_CENTER_ON_TABLE 	= 0.2, 0.88, -0.125
+PROTOTYPE_ORIENTATION = 0, 0.707, 0, -0.707
+PROTOTYPE_SPACING_X = 0
+PROTOTYPE_SPACING_Z = 0.15

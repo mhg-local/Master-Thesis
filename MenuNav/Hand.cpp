@@ -1,0 +1,520 @@
+/* $Id: Hand.cpp 49363 2015-04-20 14:24:47Z dz762974 $ */
+
+/*============================================================================*/
+/* INCLUDES																	  */
+/*============================================================================*/
+#include "Hand.h"
+
+#include <VistaDataFlowNet/VdfnNode.h>
+#include <VistaDataFlowNet/VdfnPort.h>
+#include <VistaDataFlowNet/VdfnPortFactory.h>
+#include <VistaBase/VistaUtilityMacros.h>
+#include <VistaKernel/GraphicsManager/VistaGeometryFactory.h>
+#include <VistaKernel/GraphicsManager/VistaGeometry.h>
+#include <VistaKernel/GraphicsManager/VistaGeomNode.h>
+#include <VistaKernel/GraphicsManager/VistaTransformNode.h>
+#include <VistaKernel/GraphicsManager/VistaSceneGraph.h>
+#include <VistaBase/VistaTimer.h>
+
+#include<VpmPullDownMenu.h>
+
+
+/*============================================================================*/
+/* DfnNode      															  */
+/*============================================================================*/
+class Hand::DfnNodeCreate::Node : public IVdfnNode
+{
+public:
+	Node(Hand* pHand)
+	: m_pHand( pHand )
+	, m_pWristPosition( NULL )
+	, m_pElbowPosition( NULL )
+	, m_pPalmPosition( NULL )
+	, m_pPalmOrientation( NULL )
+	, m_pFingerTipPositions( NULL )
+	, m_pFingerTipDirections( NULL )
+	, m_pFingerTipsExtended( NULL )
+	{
+		RegisterInPortPrototype( "wrist_position",			new TVdfnPortTypeCompare< TVdfnPort< VistaVector3D > >() );
+		RegisterInPortPrototype( "elbow_position",			new TVdfnPortTypeCompare< TVdfnPort< VistaVector3D > >() );
+		RegisterInPortPrototype( "palm_position",			new TVdfnPortTypeCompare< TVdfnPort< VistaVector3D > >() );
+		RegisterInPortPrototype( "palm_orientation",		new TVdfnPortTypeCompare< TVdfnPort< VistaQuaternion > >() );
+		RegisterInPortPrototype( "finger_tips",				new TVdfnPortTypeCompare< TVdfnPort< std::vector< VistaVector3D > > >() );
+		RegisterInPortPrototype( "finger_tip_directions",	new TVdfnPortTypeCompare< TVdfnPort< std::vector< VistaVector3D > > >() );
+		RegisterInPortPrototype( "fingers_extended",		new TVdfnPortTypeCompare< TVdfnPort< std::vector< bool > > >() );
+		RegisterInPortPrototype( "joint_metacarpal",		new TVdfnPortTypeCompare< TVdfnPort< std::vector< VistaVector3D > > >() );
+		RegisterInPortPrototype( "joint_proximal",			new TVdfnPortTypeCompare< TVdfnPort< std::vector< VistaVector3D > > >() );
+		RegisterInPortPrototype( "joint_intermediate",		new TVdfnPortTypeCompare< TVdfnPort< std::vector< VistaVector3D > > >() );
+		RegisterInPortPrototype( "joint_distal",			new TVdfnPortTypeCompare< TVdfnPort< std::vector< VistaVector3D > > >() );
+	}
+	virtual bool PrepareEvaluationRun()
+	{
+		m_pElbowPosition = dynamic_cast< TVdfnPort< VistaVector3D >* >( GetInPort( "elbow_position" ) );
+		m_pWristPosition = dynamic_cast< TVdfnPort< VistaVector3D >* >( GetInPort( "wrist_position" ) );
+		m_pPalmPosition = dynamic_cast< TVdfnPort< VistaVector3D >* >( GetInPort( "palm_position" ) );
+		m_pPalmOrientation = dynamic_cast< TVdfnPort< VistaQuaternion >* >( GetInPort( "palm_orientation" ) );
+
+		m_pFingerTipPositions = dynamic_cast< TVdfnPort< std::vector< VistaVector3D > >* >( GetInPort( "finger_tips" ) );
+		m_pFingerTipDirections = dynamic_cast< TVdfnPort< std::vector< VistaVector3D > >* >( GetInPort( "finger_tip_directions" ) );
+		m_pFingerTipsExtended = dynamic_cast< TVdfnPort< std::vector< bool > >* >( GetInPort( "fingers_extended" ) );
+
+		m_pJointMetacarpal = dynamic_cast< TVdfnPort< std::vector< VistaVector3D > >* >( GetInPort( "joint_metacarpal" ) );
+		m_pJointProximal = dynamic_cast< TVdfnPort< std::vector< VistaVector3D > >* >( GetInPort( "joint_proximal" ) );
+		m_pJointIntermediate = dynamic_cast< TVdfnPort< std::vector< VistaVector3D > >* >( GetInPort( "joint_intermediate" ) );
+		m_pJointDistal = dynamic_cast< TVdfnPort< std::vector< VistaVector3D > >* >( GetInPort( "joint_distal" ) );
+		return GetIsValid();
+	}
+	virtual bool GetIsValid() const
+	{
+		if( ( m_pFingerTipPositions || m_pFingerTipDirections || m_pFingerTipsExtended )
+			&& ( !m_pFingerTipPositions || !m_pFingerTipDirections || !m_pFingerTipsExtended ) )
+		{
+			vstr::warnp() << "HandDfnObject for hand \"" << m_pHand->GetName() << "\" received incomplete finger tip info" << std::endl;
+		}
+		if( ( m_pJointMetacarpal || m_pJointProximal || m_pJointIntermediate || m_pJointDistal )
+			&& ( !m_pJointMetacarpal || !m_pJointProximal || !m_pJointIntermediate || !m_pJointDistal ) )
+		{
+			vstr::warnp() << "HandDfnObject for hand \"" << m_pHand->GetName() << "\" received incomplete finger joint info" << std::endl;
+		}
+		return ( m_pPalmPosition && m_pPalmOrientation );
+	}
+
+	virtual bool DoEvalNode()
+	{
+		VistaType::microtime nUpdateTimestamp = std::max( m_pPalmPosition->GetUpdateTimeStamp(), m_pPalmOrientation->GetUpdateTimeStamp() );
+		m_pHand->SetPalmPosition(m_pPalmPosition->GetValueConstRef());
+		m_pHand->SetPalmOrientation( m_pPalmOrientation->GetValueConstRef());
+		m_pHand->SetV3ElbowPosition( m_pElbowPosition->GetValueConstRef( )  );
+		m_pHand->SetV3WristPosition( m_pWristPosition->GetValueConstRef( )  );
+
+		if( m_pFingerTipPositions && m_pFingerTipDirections && m_pFingerTipsExtended )
+		{
+		m_pHand->SetFingerTips( m_pFingerTipPositions->GetValueConstRef( ) );
+			m_pHand->SetFingerDirections( m_pFingerTipDirections->GetValueConstRef() );
+			m_pHand->SetFingersAreExtended( m_pFingerTipsExtended->GetValueConstRef() );
+			m_pHand->SetDoesProvideFingerTipData( true );
+			nUpdateTimestamp = std::max( nUpdateTimestamp, m_pFingerTipPositions->GetUpdateTimeStamp() );
+			nUpdateTimestamp = std::max( nUpdateTimestamp, m_pFingerTipDirections->GetUpdateTimeStamp() );
+			nUpdateTimestamp = std::max( nUpdateTimestamp, m_pFingerTipsExtended->GetUpdateTimeStamp() );
+		}
+
+		if( m_pJointMetacarpal && m_pJointProximal && m_pJointIntermediate && m_pJointDistal )
+		{
+			m_pHand->SetMetacarpalJoints( m_pJointMetacarpal->GetValueConstRef() );
+			m_pHand->SetProximalJoints( m_pJointProximal->GetValueConstRef() );
+			m_pHand->SetIntermediateJoints( m_pJointIntermediate->GetValueConstRef() );
+			m_pHand->SetDistalJoints( m_pJointDistal->GetValueConstRef() );
+			m_pHand->SetDoesProvideJointData( true );
+			nUpdateTimestamp = std::max( nUpdateTimestamp, m_pJointMetacarpal->GetUpdateTimeStamp() );
+			nUpdateTimestamp = std::max( nUpdateTimestamp, m_pJointProximal->GetUpdateTimeStamp() );
+			nUpdateTimestamp = std::max( nUpdateTimestamp, m_pJointIntermediate->GetUpdateTimeStamp() );
+			nUpdateTimestamp = std::max( nUpdateTimestamp, m_pJointDistal->GetUpdateTimeStamp() );
+		}
+
+		m_pHand->SetLastUpdateTime( nUpdateTimestamp );
+		
+		m_pHand->UpdateHandVisualization( );
+		
+		
+		return true;
+	}
+
+private:
+	Hand* m_pHand;
+	TVdfnPort< VistaVector3D >* m_pElbowPosition;
+	TVdfnPort< VistaVector3D >* m_pWristPosition;
+	TVdfnPort< VistaVector3D >* m_pPalmPosition;
+	TVdfnPort< VistaQuaternion >* m_pPalmOrientation;
+	TVdfnPort< std::vector< VistaVector3D > >* m_pFingerTipPositions;
+	TVdfnPort< std::vector< VistaVector3D > >* m_pFingerTipDirections;
+	TVdfnPort< std::vector< bool > >* m_pFingerTipsExtended;
+	TVdfnPort< std::vector< VistaVector3D > >* m_pJointMetacarpal;
+	TVdfnPort< std::vector< VistaVector3D > >* m_pJointProximal;
+	TVdfnPort< std::vector< VistaVector3D > >* m_pJointIntermediate;
+	TVdfnPort< std::vector< VistaVector3D > >* m_pJointDistal;
+};
+
+/*============================================================================*/
+/* DfnNodeCreate															  */
+/*============================================================================*/
+
+Hand::DfnNodeCreate::DfnNodeCreate()
+: VdfnNodeFactory::IVdfnNodeCreator()
+{
+}
+
+Hand::DfnNodeCreate::DfnNodeCreate( const std::vector< Hand* >& vecHands )
+: VdfnNodeFactory::IVdfnNodeCreator()
+, m_vecHands( vecHands )
+{
+}
+
+IVdfnNode* Hand::DfnNodeCreate::CreateNode( const VistaPropertyList& oParams ) const
+{
+	Hand* pHand = NULL;
+	const VistaPropertyList& oParamList = oParams.GetPropertyConstRef( "param" ).GetPropertyListConstRef();
+	std::string sName;
+	if( oParamList.GetValue( "name", sName ) == false )
+	{
+		vstr::warnp() << "Hand node requires parameter \"name\"" << std::endl;
+		return NULL;
+	}
+	for( std::vector< Hand* >::const_iterator itHand = m_vecHands.begin(); itHand != m_vecHands.end(); ++itHand )
+	{
+		if( (*itHand)->GetName() == sName )
+		{
+			pHand = (*itHand);
+			break;
+		}
+	}
+	if( pHand == NULL )
+	{
+		vstr::warnp() << "Hand node could not find hand named \"" << sName << "\"" << std::endl;
+		return NULL;
+	}
+	return new Node( pHand );
+}
+
+void Hand::DfnNodeCreate::AddHand( Hand* pHand )
+{
+	m_vecHands.push_back( pHand );
+}
+
+/*============================================================================*/
+/* Hand																		  */
+/*============================================================================*/
+
+
+Hand::Hand(const std::string& sName)
+: m_sName( sName )
+, m_nLastUpdateTime( -1 )
+, m_vecFingerTips( 5, Vista::ZeroVector )
+, m_vecFingerTipDirections( 5, Vista::ZeroVector )
+, m_vecFingersAreExtended( 5, false )
+, m_vecJointData( 4, std::vector< VistaVector3D >( 5, Vista::ZeroVector ) )
+, m_nFingerRadius( 0 )
+, m_bDoesProvideJointData( false )
+, m_bDoesProvideFingerTipData( false )
+, m_bIsleft( false )
+, m_bUpdateSimpleHandVis( true )
+{
+	m_vecFingerPointing2Menu.resize( 5 );
+	for ( auto& elem : m_vecFingerPointing2Menu )
+	{
+		elem = nullptr;
+	}
+
+}
+
+void Hand::SetIsLeft(bool isLeft)
+{
+	m_bIsleft = isLeft;
+}
+
+std::string Hand::GetName() const
+{
+	return m_sName;
+}
+
+VistaVector3D Hand::GetPalmPosition() const
+{
+	return m_v3PalmPosition;
+}
+
+void Hand::SetPalmPosition( const VistaVector3D& oValue )
+{
+	m_v3PalmPosition = oValue;
+}
+
+VistaQuaternion Hand::GetPalmOrientation() const
+{
+	return m_qPalmOrientation;
+}
+
+void Hand::SetPalmOrientation( const VistaQuaternion& oValue )
+{
+	m_qPalmOrientation = oValue;
+}
+
+bool Hand::GetDoesProvideFingerTipData() const
+{
+	return m_bDoesProvideFingerTipData;
+}
+
+void Hand::SetDoesProvideFingerTipData( const bool oValue )
+{
+	m_bDoesProvideFingerTipData = oValue;
+}
+
+const VistaVector3D& Hand::GetFingerTip( const Finger eFinger ) const
+{
+	return m_vecFingerTips[ eFinger ];
+}
+
+
+void Hand::SetFingerTips( const std::vector< VistaVector3D >& vecFingers )
+{
+	if( vecFingers.size() == 5 )
+		m_vecFingerTips = vecFingers;
+}
+
+const std::vector< VistaVector3D >& Hand::GetFingerDirection() const
+{
+	return m_vecFingerTipDirections;
+}
+
+const VistaVector3D& Hand::GetFingerDirection( const Finger eFinger ) const
+{
+	return m_vecFingerTipDirections[eFinger];
+}
+
+void Hand::SetFingerDirections( const std::vector< VistaVector3D >& vecFingers )
+{
+	if( vecFingers.size() == 5 )
+		m_vecFingerTipDirections = vecFingers;
+}
+
+const std::vector< bool >& Hand::GetFingersAreExtended() const
+{
+	return m_vecFingersAreExtended;
+}
+
+const bool Hand::GetFingerIsExtended( const Finger eFinger ) const
+{
+	return m_vecFingersAreExtended[eFinger];
+}
+
+void Hand::SetFingersAreExtended( const std::vector< bool >& vecFingers )
+{
+	if( vecFingers.size() ==5)
+		m_vecFingersAreExtended = vecFingers;
+}
+
+
+VistaType::microtime Hand::GetLastUpdateTime() const
+{
+	return m_nLastUpdateTime;
+}
+
+void Hand::SetLastUpdateTime( const VistaType::microtime& oValue )
+{
+	m_nLastUpdateTime = oValue;
+}
+
+void Hand::CreateSimpleVisualization( VistaGroupNode* pParent, VistaSceneGraph* pSG, const VistaColor& oColor,
+									const VistaVector3D& v3PalmSize )
+{ 
+     VistaGeometryFactory pGeomFac( pSG );
+	VistaGeometry* pPalm = pGeomFac.CreateSphere( 0.5f, 24 );
+	
+	IVistaNode* pTipModel = pSG->LoadNode("resources/models/finger_tip.obj");
+	assert(pTipModel != NULL);
+	std::vector< IVistaNode* > vecGeoms;
+	pSG->GetAllSubNodesOfType(vecGeoms, VISTA_GEOMNODE, pTipModel);
+	assert(vecGeoms.size() == 1);
+	VistaGeometry* pTip = Vista::assert_cast<VistaGeomNode*>(vecGeoms.front())->GetGeometry();
+
+
+	IVistaNode* pPhalanxModel = pSG->LoadNode( "resources/models/finger_phalanx.obj" );
+	assert( pPhalanxModel != NULL );
+	vecGeoms.clear();
+	pSG->GetAllSubNodesOfType( vecGeoms, VISTA_GEOMNODE, pPhalanxModel );
+	assert( vecGeoms.size() == 1 );
+	VistaGeometry* pPhalanx = Vista::assert_cast< VistaGeomNode* >( vecGeoms.front() )->GetGeometry();
+	VistaMaterial oMaterial;
+	oMaterial.SetAmbientColor( 0.4f * oColor );
+	oMaterial.SetDiffuseColor( 0.8f * oColor );
+	oMaterial.SetSpecularColor( 0.32f * oColor );
+	pTip->SetMaterial(oMaterial);
+	pPhalanx->SetMaterial( oMaterial );
+
+	VistaColor colTemp = VistaColor(224,179,148);
+	oMaterial.SetAmbientColor(0.4f * colTemp);
+	oMaterial.SetDiffuseColor(0.8f * colTemp);
+	oMaterial.SetSpecularColor(0.32f * colTemp);
+	pPalm->SetMaterial( oMaterial );
+
+	m_pPalmTransform = pSG->NewTransformNode( pParent );
+	VistaTransformNode* pPalmTrans = pSG->NewTransformNode( m_pPalmTransform );
+	pPalmTrans->SetScale( v3PalmSize[0], v3PalmSize[1], v3PalmSize[2] );
+	pPalmTrans->Translate(0.f, 0.f, 0.03f);
+	pSG->NewGeomNode( pPalmTrans, pPalm );
+
+	VistaVector3D afDefaultFingerSizes[5][5] = { 
+		{ VistaVector3D( -0.3f, 0, 0.4f ), VistaVector3D( -0.3f, 0, 0.25f ), VistaVector3D( -0.3f, 0, -0.25f ), VistaVector3D( -0.6f, 0, -0.45f ), VistaVector3D( -0.65f, 0, -0.6f ),  },
+		{ VistaVector3D( -0.3f, 0, 0 ), VistaVector3D( -0.3f, 0, -0.5f ), VistaVector3D( -0.3f, 0, -0.85f ), VistaVector3D( -0.3f, 0, -1.3f ), VistaVector3D( -0.3f, 0, -1.45f ),  },
+		{ VistaVector3D( -0.1f, 0, 0 ), VistaVector3D( -0.1f, 0, -0.5f ), VistaVector3D( -0.1f, 0, -0.9f ),  VistaVector3D( -0.1f, 0, -1.4f ), VistaVector3D( -0.1f, 0, -1.55f ),  },
+		{ VistaVector3D(  0.1f, 0, 0 ), VistaVector3D(  0.1f, 0, -0.45f ), VistaVector3D( 0.1f, 0, -0.85f ),  VistaVector3D( 0.1f, 0, -1.3f ), VistaVector3D(  0.1f, 0, -1.45f ),  },
+		{ VistaVector3D(  0.3f, 0, 0 ), VistaVector3D(  0.3f, 0, -0.4f ),  VistaVector3D( 0.3f, 0, -0.7f ),   VistaVector3D( 0.3f, 0, -0.9f ), VistaVector3D(  0.3f, 0, -1.25f ),  },
+	};
+
+	//m_nFingerRadius = v3PalmSize[1];
+	m_nFingerRadius = v3PalmSize[1]*1.85f;
+
+	m_vecVizualizationFingerTransforms.resize( 5 );
+	for( int nFinger = 0; nFinger < 5; ++nFinger )
+	{
+		std::vector< VistaTransformNode* >& vecTransforms = m_vecVizualizationFingerTransforms[nFinger];
+		vecTransforms.resize( 4 );
+		for( int nPhalanx = 0; nPhalanx < 4; ++nPhalanx )
+		{
+			vecTransforms[nPhalanx] = pSG->NewTransformNode( pParent );
+			nPhalanx == 3	? pSG->NewGeomNode(vecTransforms[nPhalanx], pTip)
+							: pSG->NewGeomNode( vecTransforms[nPhalanx], pPhalanx );
+			VistaVector3D v3Conn = afDefaultFingerSizes[nFinger][nPhalanx] - afDefaultFingerSizes[nFinger][nPhalanx + 1];
+			if( v3Conn.GetLength() < 0.001f )
+			{
+				vecTransforms[nPhalanx]->SetIsEnabled( false );
+			}
+			else
+			{
+				VistaVector3D v3Pos = afDefaultFingerSizes[nFinger][nPhalanx];
+				VistaQuaternion qOri = VistaQuaternion( Vista::ViewVector, v3Conn.GetNormalized() );
+				for( int i = 0; i < 3; ++i )
+				{
+					v3Pos[i] *= v3PalmSize[i];
+					v3Conn[i] *= v3PalmSize[i];
+				}
+				float nLength = v3Conn.GetLength();
+				vecTransforms[nPhalanx]->SetScale( m_nFingerRadius, m_nFingerRadius, nLength );
+				vecTransforms[nPhalanx]->SetRotation( qOri );
+				vecTransforms[nPhalanx]->SetTranslation( v3Pos );
+			}
+		}
+	}
+	delete pPhalanxModel;
+}
+
+void Hand::SetPalmVisible( bool vis )
+{
+	m_pPalmTransform->SetIsEnabled( vis );
+}
+void Hand::SetSimpleHandVisualizationVisible(bool val)
+{
+	m_bUpdateSimpleHandVis = val;
+	m_pPalmTransform->SetIsEnabled(val);
+	
+	
+	for (auto& elem : m_vecVizualizationFingerTransforms)
+	{
+		for (auto& elem2 : elem)
+		{
+			elem2->SetIsEnabled(val);
+		}
+	}
+}
+
+
+namespace
+{
+
+VistaTransformMatrix CalculateBoneOri( const VistaVector3D& v3InvPhalanxDir,
+									   const VistaVector3D& v3ReferenceRight )
+{
+	const VistaVector3D v3PhalanxUp =
+		v3InvPhalanxDir.Cross( v3ReferenceRight ).GetNormalized();
+	const VistaVector3D v3PhalanxRight =
+		v3PhalanxUp.Cross( v3InvPhalanxDir ).GetNormalized();
+
+	const VistaTransformMatrix matOri(
+		v3PhalanxRight[ 0 ], v3PhalanxUp[ 0 ], v3InvPhalanxDir[ 0 ], 0.0f,
+		v3PhalanxRight[ 1 ], v3PhalanxUp[ 1 ], v3InvPhalanxDir[ 1 ], 0.0f,
+		v3PhalanxRight[ 2 ], v3PhalanxUp[ 2 ], v3InvPhalanxDir[ 2 ], 0.0f,
+					   0.0f,			 0.0f,				   0.0f, 1.0f );
+
+	return matOri;
+}
+
+}
+
+void Hand::UpdateHandVisualization()
+{
+	if (m_vecVizualizationFingerTransforms.empty() || !m_bUpdateSimpleHandVis)
+		return;
+	// set palm transform (in global coord frame)
+	
+	
+		m_pPalmTransform->SetTranslation( m_v3PalmPosition );
+		m_pPalmTransform->SetRotation( m_qPalmOrientation );
+
+		const VistaVector3D v3PalmRight =
+			m_qPalmOrientation.Rotate( Vista::XAxis ).GetNormalized();
+		
+		if( m_bDoesProvideFingerTipData )
+			{
+			if( m_bDoesProvideJointData )
+				{
+				// calculate bone orientations for every bone of every finger (also
+				// in global coord frame)
+				for( int nFinger = 0; nFinger < 5; ++nFinger )
+					{
+					std::vector< VistaTransformNode* > vecTransforms =
+						m_vecVizualizationFingerTransforms[nFinger];
+					for( int nPhalanx = 0; nPhalanx < 4; ++nPhalanx )
+						{
+						const VistaVector3D v3Start = m_vecJointData[nPhalanx][nFinger];
+						const VistaVector3D v3End = nPhalanx == 3 ?
+							m_vecFingerTips[nFinger] :
+							m_vecJointData[nPhalanx + 1][nFinger];
+						const VistaVector3D v3InvPhalanxDir = v3Start - v3End;
+						const float nLength = v3InvPhalanxDir.GetLength();
+						// too short bone are left out
+						if( v3InvPhalanxDir.GetLength() < 0.001f )
+							{
+							vecTransforms[nPhalanx]->SetIsEnabled( false );
+							}
+						else
+							{	// calculate bone ori using the palm as reference frame
+							const VistaTransformMatrix matPhalanxOri =
+								::CalculateBoneOri( v3InvPhalanxDir.GetNormalized(),
+								v3PalmRight );
+							vecTransforms[nPhalanx]->SetIsEnabled( nPhalanx == 0 ? false
+																   : true );
+							vecTransforms[nPhalanx]->SetScale( m_nFingerRadius, m_nFingerRadius, nLength );
+							vecTransforms[nPhalanx]->SetRotation( matPhalanxOri.GetRotationAsQuaternion() );
+							vecTransforms[nPhalanx]->SetTranslation( v3Start );
+							}
+						}
+					}
+				}
+			else
+				{
+				vstr::warnp() << "No joint data yet." << std::endl;
+				}
+			}
+	
+	
+}
+
+void Hand::SetFingerPointing2Menu( const Finger eFinger, VpmPullDownMenu* m_pPullDownMenu )
+{
+	m_vecFingerPointing2Menu[ eFinger ] = m_pPullDownMenu;
+}
+
+void Hand::SetFingersDoNotPointToMenu( VpmPullDownMenu* m_pPullDownMenu )
+{
+	for ( auto& elem : m_vecFingerPointing2Menu )
+	{
+		if ( elem == m_pPullDownMenu )
+		{
+			elem = nullptr;
+		}
+	}
+}
+
+void Hand::SetNothingPointing2Menu( VpmPullDownMenu* m_pPullDownMenu )
+{
+	for ( auto& elem : m_vecFingerPointing2Menu )
+	{
+		if ( &*m_pPullDownMenu == &*elem )
+		{
+			elem = nullptr;
+		}
+	}
+}
+
+
+
+/*============================================================================*/
+/* END OF FILE																  */
+/*============================================================================*/

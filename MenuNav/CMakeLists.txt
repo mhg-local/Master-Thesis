@@ -1,0 +1,76 @@
+# $Id: CMakeLists.txt 49363 2015-04-20 14:24:47Z dz762974 $
+
+cmake_minimum_required( VERSION 2.8 )
+project( MenuNav )
+
+ENABLE_TESTING()
+
+if(CMAKE_COMPILER_IS_GNUCXX)
+    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+endif()
+
+list( APPEND CMAKE_MODULE_PATH "$ENV{VISTA_CMAKE_COMMON}" )
+include( VistaCommon )
+
+set( BOTTLEBLOWING_USE_OCULUS OFF CACHE BOOL "If enabled, oculus support is requested by using the corresponding VistaCoreLibs branch" )
+if( BOTTLEBLOWING_USE_OCULUS )
+	vista_use_package( VistaCoreLibs IMAGES REQUIRED VistaKernel VistaKernelOpenSGExt FIND_DEPENDENCIES )
+	add_definitions( -DUSE_IMAGES_BRANCH )
+else()
+	vista_use_package( VistaCoreLibs HEAD REQUIRED VistaKernel VistaKernelOpenSGExt FIND_DEPENDENCIES )
+endif()
+
+vista_use_package( LeapSDK QUIET )
+vista_use_package( sqlite REQUIRED )
+
+vista_use_package( VistaWidgets REQUIRED FIND_DEPENDENCIES )
+vista_use_package( VistaGraph REQUIRED FIND_DEPENDENCIES )
+vista_use_package( VflPullDownMenu HEAD REQUIRED FIND_DEPENDENCIES )
+vista_use_package( VflTextRendering HEAD REQUIRED FIND_DEPENDENCIES )
+vista_use_package( VistaOpenGLWidgets   REQUIRED FIND_DEPENDENCIES )
+
+# Including the source files of all source subfolders recursively
+include( "./_SourceFiles.cmake" )
+vista_add_files_to_sources( ProjectSources "configfiles" SOURCE_GROUP "configfiles" "ini" )
+vista_add_files_to_sources( ProjectSources "configfiles/xml" SOURCE_GROUP "configfiles\\\\xml" "xml" )
+
+add_executable( MenuNav ${ProjectSources} )
+target_link_libraries( MenuNav
+	${VISTA_USE_PACKAGE_LIBRARIES} # contains all libraries from vista_use_package() calls
+)
+
+vista_configure_app( MenuNav )
+vista_create_default_info_file( MenuNav )
+
+vista_install( MenuNav )
+vista_install_all_dlls( bin )
+install( DIRECTORY "configfiles" DESTINATION "."
+		PATTERN ".git" EXCLUDE
+		PATTERN "*.ini"
+		PATTERN "*.xml"
+)
+install( DIRECTORY "resources" DESTINATION "."
+		PATTERN ".git" EXCLUDE
+		PATTERN "*.glsl"
+		PATTERN "*.obj"
+		PATTERN "*.mtl"
+		PATTERN "*.txt"
+		PATTERN "*.png"
+		PATTERN "*.jpg"
+		PATTERN "*.3ds"
+		PATTERN "*.ac"
+		PATTERN "*.tga"
+)
+install( FILES "setup.ini" DESTINATION "." )
+
+set( INIFILE "vista.ini" )
+configure_file( "contrib/prototype_run.bat" "${CMAKE_CURRENT_BINARY_DIR}/toinstall/run.bat" @ONLY )
+set( INIFILE "vista_oculus.ini" )
+configure_file( "contrib/prototype_run.bat" "${CMAKE_CURRENT_BINARY_DIR}/toinstall/run_oculus.bat" @ONLY )
+install( FILES "${CMAKE_CURRENT_BINARY_DIR}/toinstall/run.bat" "${CMAKE_CURRENT_BINARY_DIR}/toinstall/run_oculus.bat" DESTINATION "." )
+
+vista_add_external_msvc_project_of_package( VistaCoreLibs "AdditionalLibs" DEPENDENT MenuNav SILENT )
+vista_add_external_msvc_project_of_package( VistaWidgets "externals" DEPENDENT MenuNav )
+vista_add_external_msvc_project_of_package( VflPullDownMenu "externals" DEPENDENT MenuNav )
+
+

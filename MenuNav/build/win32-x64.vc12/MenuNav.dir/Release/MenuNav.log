@@ -1,0 +1,56 @@
+﻿Build started 11.04.2017 13:06:09.
+     1>Project "G:\Dev\MenuNav\build\win32-x64.vc12\MenuNav.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IG:\Dev\ViSTA_Oculus /IG:\Dev\ViSTA_Oculus\VistaCoreLibs /I"G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\DriverPlugins" /I"G:\Dev\externals\OpenSG\OpenSG-1.8\win32-x64.vc12\include" /I"G:\Dev\externals\freeglut\win32-x64\include" /I"G:\Dev\externals\GLEW\glew-1.10.0\win32-x64\include" /I"G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVR\Include" /I"G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVRKernel\Src" /I"G:\Dev\externals\LeapSDK\LeapSDK-3.1.3\LeapSDK\include" /I"G:\Dev\externals\SQLITE\sqlite-3.7.17\win32-x64\include" /IG:\Dev\VistaWidgets /IG:\Dev\VistaWidgets\VistaWidgets /IG:\Dev\VistaGraphLib /IG:\Dev\VistaGraphLib\VistaGraph /IG:\Dev\VflPullDownMenu /IG:\Dev\VflTextRendering /I"G:\Dev\externals\FreeType\freetype-2.4.10\win32-x64\include" /I"G:\Dev\externals\FreeType\freetype-2.4.10\win32-x64\include\freetype2" /I"G:\Dev\externals\FTGL\ftgl-2.1.3~rc5\win32-x64.vc12\include" /IG:\Dev\VistaWidgets\VistaOpenGLWidgets /nologo /W3 /WX- /MP /O2 /Ob2 /D WIN32 /D _WINDOWS /D NDEBUG /D WIN32 /D _CRT_SECURE_NO_WARNINGS /D OSG_WITH_GLUT /D OSG_WITH_GIF /D OSG_WITH_TIF /D OSG_WITH_JPG /D OSG_BUILD_DLL /D _OSG_HAVE_CONFIGURED_H_ /D USE_IMAGES_BRANCH /D "CMAKE_INTDIR=\"Release\"" /D _MBCS /GF /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"MenuNav.dir\Release\\" /Fd"MenuNav.dir\Release\vc120.pdb" /Gd /TP /wd4251 /wd4275 /wd4503 /errorReport:prompt G:\Dev\MenuNav\MenuNav.cpp G:\Dev\MenuNav\main.cpp
+         MenuNav.cpp
+         main.cpp
+     1>G:\Dev\MenuNav\MenuNav.cpp(167): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>G:\Dev\MenuNav\MenuNav.cpp(286): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>G:\Dev\MenuNav\MenuNav.cpp(287): warning C4305: 'argument' : truncation from 'double' to 'float'
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"G:\Dev\MenuNav\build\win32-x64.vc12\bin\MenuNav.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/lib" /LIBPATH:"G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/lib/Release" /LIBPATH:"G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/lib/DriverPlugins" /LIBPATH:"G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/lib/DriverPlugins/Release" /LIBPATH:"G:/Dev/externals/OpenSG/OpenSG-1.8/win32-x64.vc12/lib" /LIBPATH:"G:/Dev/externals/OpenSG/OpenSG-1.8/win32-x64.vc12/lib/Release" /LIBPATH:"G:/Dev/externals/freeglut/win32-x64/lib" /LIBPATH:"G:/Dev/externals/freeglut/win32-x64/lib/Release" /LIBPATH:"G:/Dev/externals/glew/glew-1.10.0/win32-x64/lib" /LIBPATH:"G:/Dev/externals/glew/glew-1.10.0/win32-x64/lib/Release" /LIBPATH:"G:/Dev/externals/LeapSDK/LeapSDK-3.1.3/LeapSDK/lib/x64" /LIBPATH:"G:/Dev/externals/LeapSDK/LeapSDK-3.1.3/LeapSDK/lib/x64/Release" /LIBPATH:"G:/Dev/externals/sqlite/sqlite-3.7.17/win32-x64/lib" /LIBPATH:"G:/Dev/externals/sqlite/sqlite-3.7.17/win32-x64/lib/Release" /LIBPATH:"G:/Dev/VistaWidgets/build/win32-x64.vc12/lib" /LIBPATH:"G:/Dev/VistaWidgets/build/win32-x64.vc12/lib/Release" /LIBPATH:"G:/Dev/VistaGraphLib/build/win32-x64.vc12/lib" /LIBPATH:"G:/Dev/VistaGraphLib/build/win32-x64.vc12/lib/Release" /LIBPATH:"G:/Dev/VflPullDownMenu/build/win32-x64.vc12/lib" /LIBPATH:"G:/Dev/VflPullDownMenu/build/win32-x64.vc12/lib/Release" /LIBPATH:"G:/Dev/VflTextRendering/build/win32-x64.vc12/lib" /LIBPATH:"G:/Dev/VflTextRendering/build/win32-x64.vc12/lib/Release" /LIBPATH:"G:/Dev/externals/freetype/freetype-2.4.10/win32-x64/lib" /LIBPATH:"G:/Dev/externals/freetype/freetype-2.4.10/win32-x64/lib/Release" /LIBPATH:"G:/Dev/externals/ftgl/ftgl-2.1.3~rc5/win32-x64.vc12/lib" /LIBPATH:"G:/Dev/externals/ftgl/ftgl-2.1.3~rc5/win32-x64.vc12/lib/Release" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib VflPullDownMenu.lib VistaOGLExt.lib VflTextRendering.lib "G:\Dev\externals\freetype\freetype-2.4.10\win32-x64\lib\freetype.lib" "G:\Dev\externals\ftgl\ftgl-2.1.3~rc5\win32-x64.vc12\lib\ftgl.lib" VistaOpenGLWidgets.lib VistaGraph.lib VistaKernelOpenSGExt.lib VistaOGLExt.lib VistaKernel.lib VistaDataFlowNet.lib VistaDeviceDriversBase.lib VistaTools.lib VistaMath.lib VistaInterProcComm.lib VistaAspects.lib VistaBase.lib VistaWidgets.lib "G:\Dev\externals\sqlite\sqlite-3.7.17\win32-x64\lib\sqlite3.lib" Leap.lib VistaKernelOpenSGExt.lib VistaKernel.lib VistaDataFlowNet.lib VistaDeviceDriversBase.lib VistaTools.lib VistaMath.lib VistaInterProcComm.lib VistaAspects.lib VistaBase.lib glu32.lib opengl32.lib OSGSystem.lib OSGBase.lib "G:\Dev\externals\freeglut\win32-x64\lib\freeglut.lib" "G:\Dev\externals\glew\glew-1.10.0\win32-x64\lib\glew32.lib" "G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVR\Lib\Windows\x64\Release\VS2013\LibOVR.lib" VistaOGLExt.lib VflTextRendering.lib "G:\Dev\externals\freetype\freetype-2.4.10\win32-x64\lib\freetype.lib" "G:\Dev\externals\ftgl\ftgl-2.1.3~rc5\win32-x64.vc12\lib\ftgl.lib" VistaOpenGLWidgets.lib VistaGraph.lib VistaWidgets.lib "G:\Dev\externals\sqlite\sqlite-3.7.17\win32-x64\lib\sqlite3.lib" Leap.lib glu32.lib opengl32.lib OSGSystem.lib OSGBase.lib "G:\Dev\externals\freeglut\win32-x64\lib\freeglut.lib" "G:\Dev\externals\glew\glew-1.10.0\win32-x64\lib\glew32.lib" "G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVR\Lib\Windows\x64\Release\VS2013\LibOVR.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"G:/Dev/MenuNav/build/win32-x64.vc12/bin/MenuNav.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:/Dev/MenuNav/build/win32-x64.vc12/bin/MenuNav.lib" /MACHINE:X64  /machine:x64 MenuNav.dir\Release\MenuNav.obj
+         MenuNav.dir\Release\Hand.obj
+         MenuNav.dir\Release\HandInteractionManager.obj
+         MenuNav.dir\Release\main.obj
+         MenuNav.dir\Release\InitConstants.obj
+         MenuNav.dir\Release\MassegeWidget.obj
+         "G:\Dev\VflPullDownMenu\build\win32-x64.vc12\lib\VflPullDownMenu.lib"
+         "G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\VistaAspects.lib"
+         "G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\VistaBase.lib"
+         "G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\VistaDataFlowNet.lib"
+         "G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\VistaDeviceDriversBase.lib"
+         "G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\VistaInterProcComm.lib"
+         "G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\VistaKernel.lib"
+         "G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\VistaKernelOpenSGExt.lib"
+         "G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\VistaMath.lib"
+         "G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\VistaOGLExt.lib"
+         "G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\VistaTools.lib"
+         "G:\Dev\VistaWidgets\build\win32-x64.vc12\lib\VistaWidgets.lib"
+         MenuNav.vcxproj -> G:\Dev\MenuNav\build\win32-x64.vc12\bin\MenuNav.exe
+       PostBuildEvent:
+         setlocal
+         "C:\Program Files (x86)\CMake\bin\cmake.exe" -E make_directory G:/Dev/MenuNav
+         if %errorlevel% neq 0 goto :cmEnd
+         "C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy G:/Dev/MenuNav/build/win32-x64.vc12/bin/MenuNav.exe G:/Dev/MenuNav
+         if %errorlevel% neq 0 goto :cmEnd
+         :cmEnd
+         endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+         :cmErrorLevel
+         exit /b %1
+         :cmDone
+         if %errorlevel% neq 0 goto :VCEnd
+         setlocal
+         "C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy_if_different G:/Dev/MenuNav/build/win32-x64.vc12/bin/set_path_for_MenuNav.bat G:/Dev/MenuNav
+         if %errorlevel% neq 0 goto :cmEnd
+         :cmEnd
+         endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+         :cmErrorLevel
+         exit /b %1
+         :cmDone
+         if %errorlevel% neq 0 goto :VCEnd
+         :VCEnd
+     1>Done Building Project "G:\Dev\MenuNav\build\win32-x64.vc12\MenuNav.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:07.11

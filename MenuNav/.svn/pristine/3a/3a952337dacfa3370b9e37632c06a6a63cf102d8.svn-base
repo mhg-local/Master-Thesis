@@ -1,0 +1,6 @@
+REM Auto-generated file that sets the environment variables for the project
+
+SET PATH=C:/Home/dev/src/Vista/trunk/VistaCoreLibs/build/win32-x64.vc12/lib;C:/Home/dev/src/Vista/trunk/VistaCoreLibs/build/win32-x64.vc12/lib/DriverPlugins;C:/Home/dev/external/OpenSG/OpenSG-1.8/win32-x64.vc12/lib;C:/Home/dev/external/freeglut/freeglut-2.8.1/win32-x64/lib;C:/Home/dev/external/glew/glew-1.10.0/win32-x64/lib;C:/Home/dev/external/zeromq/zeromq-2.2.0/win32-x64/lib;C:/Home/dev/src/VistaFlowLib/trunk/build/win32-x64.vc12/lib;C:/Home/dev/external/LeapSDK/LeapSDK-2.2.0.23475/LeapSDK/lib/x64;%PATH%
+SET VISTACORELIBS_DRIVER_PLUGIN_DIRS=C:/Home/dev/src/Vista/trunk/VistaCoreLibs/build/win32-x64.vc12/lib/DriverPlugins
+SET VISTA_SHADER_DIRS=C:/Home/dev/src/VistaFlowLib/trunk/VistaOGLExt/Rendering/ABuffer/shaders;C:/Home/dev/src/VistaFlowLib/trunk/VistaOGLExt/Rendering/shaders;C:/Home/dev/src/VistaFlowLib/trunk/VistaOGLExt/shaders
+

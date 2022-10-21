@@ -1,0 +1,102 @@
+/* $Id$ */
+
+/*============================================================================*/
+/* INCLUDES																	  */
+/*============================================================================*/
+#include "HandInteractionManager.h"
+#include "Hand.h"
+
+#include <VistaBase/VistaTimer.h>
+
+namespace
+{
+	const VistaTransformMatrix S_matOffTransform( VistaVector3D( 1e5f, 1e5f, -1e5f ) );
+}
+/*============================================================================*/
+/* HandData																	  */
+/*============================================================================*/
+HandInteractionManager::HandData::HandData()
+: m_pHand( NULL )
+, m_eActiveGesture( GESTURE_NONE )
+, m_nLastCheckedHandUpdateTime()
+{
+}
+
+/*============================================================================*/
+/* HandInteractionManager													  */
+/*============================================================================*/
+
+HandInteractionManager::HandInteractionManager()
+{
+}
+
+HandInteractionManager::~HandInteractionManager()
+{
+}
+
+void HandInteractionManager::RegisterHand( Hand* pHand )
+{
+	m_vecHands.push_back( HandData() );
+	HandData& oData = m_vecHands.back();
+	oData.m_pHand = pHand;
+}
+
+void HandInteractionManager::UnregisterHand( Hand* pHand )
+{
+	std::vector< HandData >::iterator itEntry = std::find_if( m_vecHands.begin(), m_vecHands.end(),
+															  [pHand]( const HandData& oData ) -> bool { return ( oData.m_pHand == pHand ); } );
+	if (itEntry != m_vecHands.end())
+	{
+		m_vecHands.erase(itEntry);
+	}
+		
+}
+
+void HandInteractionManager::Update()
+{
+	DetectAllHandGestures();
+	PerformAllHandGestureInteractions();
+}
+
+
+void HandInteractionManager::HandleEvent( VistaEvent *pEvent )
+{
+	Update();
+}
+
+
+void HandInteractionManager::DetectAllHandGestures()
+{
+	for( HandData& oHand : m_vecHands )
+	{
+		DetectHandGesture( oHand );
+	}
+}
+
+
+void HandInteractionManager::DetectHandGesture( HandData& oHand )
+{
+	// Check for gestures here
+}
+
+void HandInteractionManager::PerformAllHandGestureInteractions()
+{
+	for( HandData& oHand : m_vecHands )
+		PerformGestureInteraction( oHand );
+}
+
+void HandInteractionManager::PerformGestureInteraction( HandData& oHand )
+{
+	switch( oHand.m_eActiveGesture )
+	{
+// 		case GESTURE_GRAB:
+// 		{
+// 			PerformGrabInteractionUpdate( oHand );
+// 			break;
+// 		}
+	}
+}
+
+/*============================================================================*/
+/* END OF FILE																  */
+/*============================================================================*/

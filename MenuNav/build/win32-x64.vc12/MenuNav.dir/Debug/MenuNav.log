@@ -1,0 +1,188 @@
+﻿Build started 16.03.2017 12:05:34.
+     1>Project "G:\Dev\MenuNav\build\win32-x64.vc12\MenuNav.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IG:\Dev\ViSTA_Oculus /IG:\Dev\ViSTA_Oculus\VistaCoreLibs /I"G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\DriverPlugins" /I"G:\Dev\externals\OpenSG\OpenSG-1.8\win32-x64.vc12\include" /I"G:\Dev\externals\freeglut\win32-x64\include" /I"G:\Dev\externals\GLEW\glew-1.10.0\win32-x64\include" /I"G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVR\Include" /I"G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVRKernel\Src" /I"G:\Dev\externals\LeapSDK\LeapSDK-3.1.3\LeapSDK\include" /I"G:\Dev\externals\SQLITE\sqlite-3.7.17\win32-x64\include" /IG:\Dev\VistaWidgets /IG:\Dev\VistaWidgets\VistaWidgets /IG:\Dev\VistaGraphLib /IG:\Dev\VistaGraphLib\VistaGraph /IG:\Dev\VflPullDownMenu /IG:\Dev\VflTextRendering /I"G:\Dev\externals\FreeType\freetype-2.4.10\win32-x64\include" /I"G:\Dev\externals\FreeType\freetype-2.4.10\win32-x64\include\freetype2" /I"G:\Dev\externals\FTGL\ftgl-2.1.3~rc5\win32-x64.vc12\include" /IG:\Dev\VistaWidgets\VistaOpenGLWidgets /Zi /nologo /W3 /WX- /MP /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D DEBUG /D WIN32 /D _CRT_SECURE_NO_WARNINGS /D OSG_WITH_GLUT /D OSG_WITH_GIF /D OSG_WITH_TIF /D OSG_WITH_JPG /D OSG_BUILD_DLL /D _OSG_HAVE_CONFIGURED_H_ /D USE_IMAGES_BRANCH /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /GF /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"MenuNav.dir\Debug\\" /Fd"MenuNav.dir\Debug\vc120.pdb" /Gd /TP /wd4251 /wd4275 /wd4503 /errorReport:prompt G:\Dev\MenuNav\HandInteractionManager.cpp
+         HandInteractionManager.cpp
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(203): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(208): warning C4305: 'argument' : truncation from 'double' to 'const float'
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(246): warning C4305: 'argument' : truncation from 'double' to 'const float'
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(534): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(535): warning C4305: 'argument' : truncation from 'double' to 'const float'
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(536): warning C4305: 'argument' : truncation from 'double' to 'const float'
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(537): warning C4305: 'argument' : truncation from 'double' to 'const float'
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(538): warning C4305: 'argument' : truncation from 'double' to 'const float'
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(613): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(630): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(647): warning C4305: 'argument' : truncation from 'double' to 'const float'
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(648): warning C4305: 'argument' : truncation from 'double' to 'const float'
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(684): warning C4244: '=' : conversion from 'clock_t' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(688): warning C4244: '=' : conversion from 'clock_t' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(692): warning C4244: '=' : conversion from 'clock_t' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(696): warning C4244: '=' : conversion from 'clock_t' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(700): warning C4244: '=' : conversion from 'clock_t' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(704): warning C4244: '=' : conversion from 'clock_t' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(708): warning C4244: '=' : conversion from 'clock_t' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(712): warning C4244: '=' : conversion from 'clock_t' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(716): warning C4244: '=' : conversion from 'clock_t' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(720): warning C4244: '=' : conversion from 'clock_t' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(748): warning C4305: 'argument' : truncation from 'double' to 'const float'
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1141): warning C4244: 'initializing' : conversion from 'clock_t' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1159): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1260): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1282): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1302): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1322): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1343): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1364): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1385): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1405): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1424): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1445): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1464): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1468): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1472): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1476): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1480): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1484): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1488): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1492): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1496): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1500): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1538): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1542): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1546): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1550): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1554): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1558): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1562): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1566): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1570): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1574): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1600): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1604): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1608): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1612): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1616): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1620): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1624): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1628): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1632): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1636): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1662): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1666): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1670): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1674): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1678): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1682): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1686): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1690): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1694): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1698): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1726): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1730): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1734): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1738): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1742): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1746): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1750): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1754): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1758): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1762): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1793): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1797): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1801): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1805): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1809): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1813): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1817): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1821): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1825): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1829): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1858): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1862): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1866): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1870): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1874): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1878): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1882): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1886): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1890): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1894): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1919): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1923): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1927): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1931): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1935): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1939): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1943): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1947): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1951): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1955): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1979): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1983): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1987): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1991): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1995): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(1999): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(2003): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(2007): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(2011): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(2015): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(2057): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(2061): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(2065): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(2069): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(2073): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(2077): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(2081): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(2085): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(2089): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(2093): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>G:\Dev\MenuNav\HandInteractionManager.cpp(2181): warning C4305: 'argument' : truncation from 'double' to 'float'
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"G:\Dev\MenuNav\build\win32-x64.vc12\bin\MenuNavD.exe" /INCREMENTAL /NOLOGO /LIBPATH:"G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/lib" /LIBPATH:"G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/lib/Debug" /LIBPATH:"G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/lib/DriverPlugins" /LIBPATH:"G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/lib/DriverPlugins/Debug" /LIBPATH:"G:/Dev/externals/OpenSG/OpenSG-1.8/win32-x64.vc12/lib" /LIBPATH:"G:/Dev/externals/OpenSG/OpenSG-1.8/win32-x64.vc12/lib/Debug" /LIBPATH:"G:/Dev/externals/freeglut/win32-x64/lib" /LIBPATH:"G:/Dev/externals/freeglut/win32-x64/lib/Debug" /LIBPATH:"G:/Dev/externals/glew/glew-1.10.0/win32-x64/lib" /LIBPATH:"G:/Dev/externals/glew/glew-1.10.0/win32-x64/lib/Debug" /LIBPATH:"G:/Dev/externals/LeapSDK/LeapSDK-3.1.3/LeapSDK/lib/x64" /LIBPATH:"G:/Dev/externals/LeapSDK/LeapSDK-3.1.3/LeapSDK/lib/x64/Debug" /LIBPATH:"G:/Dev/externals/sqlite/sqlite-3.7.17/win32-x64/lib" /LIBPATH:"G:/Dev/externals/sqlite/sqlite-3.7.17/win32-x64/lib/Debug" /LIBPATH:"G:/Dev/VistaWidgets/build/win32-x64.vc12/lib" /LIBPATH:"G:/Dev/VistaWidgets/build/win32-x64.vc12/lib/Debug" /LIBPATH:"G:/Dev/VistaGraphLib/build/win32-x64.vc12/lib" /LIBPATH:"G:/Dev/VistaGraphLib/build/win32-x64.vc12/lib/Debug" /LIBPATH:"G:/Dev/VflPullDownMenu/build/win32-x64.vc12/lib" /LIBPATH:"G:/Dev/VflPullDownMenu/build/win32-x64.vc12/lib/Debug" /LIBPATH:"G:/Dev/VflTextRendering/build/win32-x64.vc12/lib" /LIBPATH:"G:/Dev/VflTextRendering/build/win32-x64.vc12/lib/Debug" /LIBPATH:"G:/Dev/externals/freetype/freetype-2.4.10/win32-x64/lib" /LIBPATH:"G:/Dev/externals/freetype/freetype-2.4.10/win32-x64/lib/Debug" /LIBPATH:"G:/Dev/externals/ftgl/ftgl-2.1.3~rc5/win32-x64.vc12/lib" /LIBPATH:"G:/Dev/externals/ftgl/ftgl-2.1.3~rc5/win32-x64.vc12/lib/Debug" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib VflPullDownMenuD.lib VistaOGLExtD.lib VflTextRenderingD.lib "G:\Dev\externals\freetype\freetype-2.4.10\win32-x64\lib\freetype.lib" "G:\Dev\externals\ftgl\ftgl-2.1.3~rc5\win32-x64.vc12\lib\ftgl.lib" VistaOpenGLWidgetsD.lib VistaGraphD.lib VistaKernelOpenSGExtD.lib VistaOGLExtD.lib VistaKernelD.lib VistaDataFlowNetD.lib VistaDeviceDriversBaseD.lib VistaToolsD.lib VistaMathD.lib VistaInterProcCommD.lib VistaAspectsD.lib VistaBaseD.lib VistaWidgetsD.lib "G:\Dev\externals\sqlite\sqlite-3.7.17\win32-x64\lib\sqlite3.lib" Leap.lib VistaKernelOpenSGExtD.lib VistaKernelD.lib VistaDataFlowNetD.lib VistaDeviceDriversBaseD.lib VistaToolsD.lib VistaMathD.lib VistaInterProcCommD.lib VistaAspectsD.lib VistaBaseD.lib glu32.lib opengl32.lib OSGSystemD.lib OSGBaseD.lib "G:\Dev\externals\freeglut\win32-x64\lib\freeglut.lib" "G:\Dev\externals\glew\glew-1.10.0\win32-x64\lib\glew32.lib" "G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVR\Lib\Windows\x64\Debug\VS2013\LibOVR.lib" VistaOGLExtD.lib VflTextRenderingD.lib "G:\Dev\externals\freetype\freetype-2.4.10\win32-x64\lib\freetype.lib" "G:\Dev\externals\ftgl\ftgl-2.1.3~rc5\win32-x64.vc12\lib\ftgl.lib" VistaOpenGLWidgetsD.lib VistaGraphD.lib VistaWidgetsD.lib "G:\Dev\externals\sqlite\sqlite-3.7.17\win32-x64\lib\sqlite3.lib" Leap.lib glu32.lib opengl32.lib OSGSystemD.lib OSGBaseD.lib "G:\Dev\externals\freeglut\win32-x64\lib\freeglut.lib" "G:\Dev\externals\glew\glew-1.10.0\win32-x64\lib\glew32.lib" "G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVR\Lib\Windows\x64\Debug\VS2013\LibOVR.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"G:/Dev/MenuNav/build/win32-x64.vc12/bin/MenuNavD.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:/Dev/MenuNav/build/win32-x64.vc12/bin/MenuNavD.lib" /MACHINE:X64  /machine:x64 /debug MenuNav.dir\Debug\MenuNav.obj
+         MenuNav.dir\Debug\Hand.obj
+         MenuNav.dir\Debug\HandInteractionManager.obj
+         MenuNav.dir\Debug\main.obj
+         MenuNav.dir\Debug\InitConstants.obj
+         MenuNav.dir\Debug\MassegeWidget.obj
+         "G:\Dev\VflPullDownMenu\build\win32-x64.vc12\lib\VflPullDownMenuD.lib"
+         "G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\VistaAspectsD.lib"
+         "G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\VistaBaseD.lib"
+         "G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\VistaDataFlowNetD.lib"
+         "G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\VistaDeviceDriversBaseD.lib"
+         "G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\VistaInterProcCommD.lib"
+         "G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\VistaKernelD.lib"
+         "G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\VistaKernelOpenSGExtD.lib"
+         "G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\VistaMathD.lib"
+         "G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\VistaOGLExtD.lib"
+         "G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\VistaToolsD.lib"
+         "G:\Dev\VistaWidgets\build\win32-x64.vc12\lib\VistaWidgetsD.lib"
+         MenuNav.vcxproj -> G:\Dev\MenuNav\build\win32-x64.vc12\bin\MenuNavD.exe
+       PostBuildEvent:
+         setlocal
+         "C:\Program Files (x86)\CMake\bin\cmake.exe" -E make_directory G:/Dev/MenuNav
+         if %errorlevel% neq 0 goto :cmEnd
+         "C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy G:/Dev/MenuNav/build/win32-x64.vc12/bin/MenuNavD.exe G:/Dev/MenuNav
+         if %errorlevel% neq 0 goto :cmEnd
+         :cmEnd
+         endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+         :cmErrorLevel
+         exit /b %1
+         :cmDone
+         if %errorlevel% neq 0 goto :VCEnd
+         setlocal
+         "C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy_if_different G:/Dev/MenuNav/build/win32-x64.vc12/bin/set_path_for_MenuNav.bat G:/Dev/MenuNav
+         if %errorlevel% neq 0 goto :cmEnd
+         :cmEnd
+         endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+         :cmErrorLevel
+         exit /b %1
+         :cmDone
+         if %errorlevel% neq 0 goto :VCEnd
+         :VCEnd
+     1>Done Building Project "G:\Dev\MenuNav\build\win32-x64.vc12\MenuNav.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:05.75

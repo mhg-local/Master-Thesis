@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{EA0E8BC4-BC09-4B57-9794-DCB87C26A717}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>MenuNav</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+    <PropertyGroup>
+      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\Dev\MenuNav\build\win32-x64.vc12\bin\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MenuNav.dir\Release\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MenuNav</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\Dev\MenuNav\build\win32-x64.vc12\bin\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MenuNav.dir\Debug\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MenuNavD</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>G:\Dev\ViSTA_Oculus;G:\Dev\ViSTA_Oculus\VistaCoreLibs;G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\DriverPlugins;G:\Dev\externals\OpenSG\OpenSG-1.8\win32-x64.vc12\include;G:\Dev\externals\freeglut\win32-x64\include;G:\Dev\externals\GLEW\glew-1.10.0\win32-x64\include;G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVR\Include;G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVRKernel\Src;G:\Dev\externals\LeapSDK\LeapSDK-3.1.3\LeapSDK\include;G:\Dev\externals\SQLITE\sqlite-3.7.17\win32-x64\include;G:\Dev\VistaWidgets;G:\Dev\VistaWidgets\VistaWidgets;G:\Dev\VistaGraphLib;G:\Dev\VistaGraphLib\VistaGraph;G:\Dev\VflPullDownMenu;G:\Dev\VflTextRendering;G:\Dev\externals\FreeType\freetype-2.4.10\win32-x64\include;G:\Dev\externals\FreeType\freetype-2.4.10\win32-x64\include\freetype2;G:\Dev\externals\FTGL\ftgl-2.1.3~rc5\win32-x64.vc12\include;G:\Dev\VistaWidgets\VistaOpenGLWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DisableSpecificWarnings>4251;4275;4503</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;WIN32;_CRT_SECURE_NO_WARNINGS;OSG_WITH_GLUT;OSG_WITH_GIF;OSG_WITH_TIF;OSG_WITH_JPG;OSG_BUILD_DLL;_OSG_HAVE_CONFIGURED_H_;USE_IMAGES_BRANCH;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;WIN32;_CRT_SECURE_NO_WARNINGS;OSG_WITH_GLUT;OSG_WITH_GIF;OSG_WITH_TIF;OSG_WITH_JPG;OSG_BUILD_DLL;_OSG_HAVE_CONFIGURED_H_;USE_IMAGES_BRANCH;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\Dev\ViSTA_Oculus;G:\Dev\ViSTA_Oculus\VistaCoreLibs;G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\DriverPlugins;G:\Dev\externals\OpenSG\OpenSG-1.8\win32-x64.vc12\include;G:\Dev\externals\freeglut\win32-x64\include;G:\Dev\externals\GLEW\glew-1.10.0\win32-x64\include;G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVR\Include;G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVRKernel\Src;G:\Dev\externals\LeapSDK\LeapSDK-3.1.3\LeapSDK\include;G:\Dev\externals\SQLITE\sqlite-3.7.17\win32-x64\include;G:\Dev\VistaWidgets;G:\Dev\VistaWidgets\VistaWidgets;G:\Dev\VistaGraphLib;G:\Dev\VistaGraphLib\VistaGraph;G:\Dev\VflPullDownMenu;G:\Dev\VflTextRendering;G:\Dev\externals\FreeType\freetype-2.4.10\win32-x64\include;G:\Dev\externals\FreeType\freetype-2.4.10\win32-x64\include\freetype2;G:\Dev\externals\FTGL\ftgl-2.1.3~rc5\win32-x64.vc12\include;G:\Dev\VistaWidgets\VistaOpenGLWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\Dev\ViSTA_Oculus;G:\Dev\ViSTA_Oculus\VistaCoreLibs;G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\DriverPlugins;G:\Dev\externals\OpenSG\OpenSG-1.8\win32-x64.vc12\include;G:\Dev\externals\freeglut\win32-x64\include;G:\Dev\externals\GLEW\glew-1.10.0\win32-x64\include;G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVR\Include;G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVRKernel\Src;G:\Dev\externals\LeapSDK\LeapSDK-3.1.3\LeapSDK\include;G:\Dev\externals\SQLITE\sqlite-3.7.17\win32-x64\include;G:\Dev\VistaWidgets;G:\Dev\VistaWidgets\VistaWidgets;G:\Dev\VistaGraphLib;G:\Dev\VistaGraphLib\VistaGraph;G:\Dev\VflPullDownMenu;G:\Dev\VflTextRendering;G:\Dev\externals\FreeType\freetype-2.4.10\win32-x64\include;G:\Dev\externals\FreeType\freetype-2.4.10\win32-x64\include\freetype2;G:\Dev\externals\FTGL\ftgl-2.1.3~rc5\win32-x64.vc12\include;G:\Dev\VistaWidgets\VistaOpenGLWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>Post-build copying of files	Post-build copying of files</Message>
+      <Command>setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E make_directory G:/Dev/MenuNav
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy G:/Dev/MenuNav/build/win32-x64.vc12/bin/MenuNav.exe G:/Dev/MenuNav
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy_if_different G:/Dev/MenuNav/build/win32-x64.vc12/bin/set_path_for_MenuNav.bat G:/Dev/MenuNav
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalOptions> /machine:x64 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;VflPullDownMenu.lib;VistaOGLExt.lib;VflTextRendering.lib;G:\Dev\externals\freetype\freetype-2.4.10\win32-x64\lib\freetype.lib;G:\Dev\externals\ftgl\ftgl-2.1.3~rc5\win32-x64.vc12\lib\ftgl.lib;VistaOpenGLWidgets.lib;VistaGraph.lib;VistaKernelOpenSGExt.lib;VistaOGLExt.lib;VistaKernel.lib;VistaDataFlowNet.lib;VistaDeviceDriversBase.lib;VistaTools.lib;VistaMath.lib;VistaInterProcComm.lib;VistaAspects.lib;VistaBase.lib;VistaWidgets.lib;G:\Dev\externals\sqlite\sqlite-3.7.17\win32-x64\lib\sqlite3.lib;Leap.lib;VistaKernelOpenSGExt.lib;VistaKernel.lib;VistaDataFlowNet.lib;VistaDeviceDriversBase.lib;VistaTools.lib;VistaMath.lib;VistaInterProcComm.lib;VistaAspects.lib;VistaBase.lib;glu32.lib;opengl32.lib;OSGSystem.lib;OSGBase.lib;G:\Dev\externals\freeglut\win32-x64\lib\freeglut.lib;G:\Dev\externals\glew\glew-1.10.0\win32-x64\lib\glew32.lib;G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVR\Lib\Windows\x64\Release\VS2013\LibOVR.lib;VistaOGLExt.lib;VflTextRendering.lib;G:\Dev\externals\freetype\freetype-2.4.10\win32-x64\lib\freetype.lib;G:\Dev\externals\ftgl\ftgl-2.1.3~rc5\win32-x64.vc12\lib\ftgl.lib;VistaOpenGLWidgets.lib;VistaGraph.lib;VistaWidgets.lib;G:\Dev\externals\sqlite\sqlite-3.7.17\win32-x64\lib\sqlite3.lib;Leap.lib;glu32.lib;opengl32.lib;OSGSystem.lib;OSGBase.lib;G:\Dev\externals\freeglut\win32-x64\lib\freeglut.lib;G:\Dev\externals\glew\glew-1.10.0\win32-x64\lib\glew32.lib;G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVR\Lib\Windows\x64\Release\VS2013\LibOVR.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/lib;G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/lib/$(Configuration);G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/lib/DriverPlugins;G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/lib/DriverPlugins/$(Configuration);G:/Dev/externals/OpenSG/OpenSG-1.8/win32-x64.vc12/lib;G:/Dev/externals/OpenSG/OpenSG-1.8/win32-x64.vc12/lib/$(Configuration);G:/Dev/externals/freeglut/win32-x64/lib;G:/Dev/externals/freeglut/win32-x64/lib/$(Configuration);G:/Dev/externals/glew/glew-1.10.0/win32-x64/lib;G:/Dev/externals/glew/glew-1.10.0/win32-x64/lib/$(Configuration);G:/Dev/externals/LeapSDK/LeapSDK-3.1.3/LeapSDK/lib/x64;G:/Dev/externals/LeapSDK/LeapSDK-3.1.3/LeapSDK/lib/x64/$(Configuration);G:/Dev/externals/sqlite/sqlite-3.7.17/win32-x64/lib;G:/Dev/externals/sqlite/sqlite-3.7.17/win32-x64/lib/$(Configuration);G:/Dev/VistaWidgets/build/win32-x64.vc12/lib;G:/Dev/VistaWidgets/build/win32-x64.vc12/lib/$(Configuration);G:/Dev/VistaGraphLib/build/win32-x64.vc12/lib;G:/Dev/VistaGraphLib/build/win32-x64.vc12/lib/$(Configuration);G:/Dev/VflPullDownMenu/build/win32-x64.vc12/lib;G:/Dev/VflPullDownMenu/build/win32-x64.vc12/lib/$(Configuration);G:/Dev/VflTextRendering/build/win32-x64.vc12/lib;G:/Dev/VflTextRendering/build/win32-x64.vc12/lib/$(Configuration);G:/Dev/externals/freetype/freetype-2.4.10/win32-x64/lib;G:/Dev/externals/freetype/freetype-2.4.10/win32-x64/lib/$(Configuration);G:/Dev/externals/ftgl/ftgl-2.1.3~rc5/win32-x64.vc12/lib;G:/Dev/externals/ftgl/ftgl-2.1.3~rc5/win32-x64.vc12/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>G:/Dev/MenuNav/build/win32-x64.vc12/bin/MenuNav.lib</ImportLibrary>
+      <ProgramDataBaseFile>G:/Dev/MenuNav/build/win32-x64.vc12/bin/MenuNav.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>G:\Dev\ViSTA_Oculus;G:\Dev\ViSTA_Oculus\VistaCoreLibs;G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\DriverPlugins;G:\Dev\externals\OpenSG\OpenSG-1.8\win32-x64.vc12\include;G:\Dev\externals\freeglut\win32-x64\include;G:\Dev\externals\GLEW\glew-1.10.0\win32-x64\include;G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVR\Include;G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVRKernel\Src;G:\Dev\externals\LeapSDK\LeapSDK-3.1.3\LeapSDK\include;G:\Dev\externals\SQLITE\sqlite-3.7.17\win32-x64\include;G:\Dev\VistaWidgets;G:\Dev\VistaWidgets\VistaWidgets;G:\Dev\VistaGraphLib;G:\Dev\VistaGraphLib\VistaGraph;G:\Dev\VflPullDownMenu;G:\Dev\VflTextRendering;G:\Dev\externals\FreeType\freetype-2.4.10\win32-x64\include;G:\Dev\externals\FreeType\freetype-2.4.10\win32-x64\include\freetype2;G:\Dev\externals\FTGL\ftgl-2.1.3~rc5\win32-x64.vc12\include;G:\Dev\VistaWidgets\VistaOpenGLWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4251;4275;4503</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;DEBUG;WIN32;_CRT_SECURE_NO_WARNINGS;OSG_WITH_GLUT;OSG_WITH_GIF;OSG_WITH_TIF;OSG_WITH_JPG;OSG_BUILD_DLL;_OSG_HAVE_CONFIGURED_H_;USE_IMAGES_BRANCH;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;DEBUG;WIN32;_CRT_SECURE_NO_WARNINGS;OSG_WITH_GLUT;OSG_WITH_GIF;OSG_WITH_TIF;OSG_WITH_JPG;OSG_BUILD_DLL;_OSG_HAVE_CONFIGURED_H_;USE_IMAGES_BRANCH;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\Dev\ViSTA_Oculus;G:\Dev\ViSTA_Oculus\VistaCoreLibs;G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\DriverPlugins;G:\Dev\externals\OpenSG\OpenSG-1.8\win32-x64.vc12\include;G:\Dev\externals\freeglut\win32-x64\include;G:\Dev\externals\GLEW\glew-1.10.0\win32-x64\include;G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVR\Include;G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVRKernel\Src;G:\Dev\externals\LeapSDK\LeapSDK-3.1.3\LeapSDK\include;G:\Dev\externals\SQLITE\sqlite-3.7.17\win32-x64\include;G:\Dev\VistaWidgets;G:\Dev\VistaWidgets\VistaWidgets;G:\Dev\VistaGraphLib;G:\Dev\VistaGraphLib\VistaGraph;G:\Dev\VflPullDownMenu;G:\Dev\VflTextRendering;G:\Dev\externals\FreeType\freetype-2.4.10\win32-x64\include;G:\Dev\externals\FreeType\freetype-2.4.10\win32-x64\include\freetype2;G:\Dev\externals\FTGL\ftgl-2.1.3~rc5\win32-x64.vc12\include;G:\Dev\VistaWidgets\VistaOpenGLWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\Dev\ViSTA_Oculus;G:\Dev\ViSTA_Oculus\VistaCoreLibs;G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\lib\DriverPlugins;G:\Dev\externals\OpenSG\OpenSG-1.8\win32-x64.vc12\include;G:\Dev\externals\freeglut\win32-x64\include;G:\Dev\externals\GLEW\glew-1.10.0\win32-x64\include;G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVR\Include;G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVRKernel\Src;G:\Dev\externals\LeapSDK\LeapSDK-3.1.3\LeapSDK\include;G:\Dev\externals\SQLITE\sqlite-3.7.17\win32-x64\include;G:\Dev\VistaWidgets;G:\Dev\VistaWidgets\VistaWidgets;G:\Dev\VistaGraphLib;G:\Dev\VistaGraphLib\VistaGraph;G:\Dev\VflPullDownMenu;G:\Dev\VflTextRendering;G:\Dev\externals\FreeType\freetype-2.4.10\win32-x64\include;G:\Dev\externals\FreeType\freetype-2.4.10\win32-x64\include\freetype2;G:\Dev\externals\FTGL\ftgl-2.1.3~rc5\win32-x64.vc12\include;G:\Dev\VistaWidgets\VistaOpenGLWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>Post-build copying of files	Post-build copying of files</Message>
+      <Command>setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E make_directory G:/Dev/MenuNav
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy G:/Dev/MenuNav/build/win32-x64.vc12/bin/MenuNavD.exe G:/Dev/MenuNav
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy_if_different G:/Dev/MenuNav/build/win32-x64.vc12/bin/set_path_for_MenuNav.bat G:/Dev/MenuNav
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalOptions> /machine:x64 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;VflPullDownMenuD.lib;VistaOGLExtD.lib;VflTextRenderingD.lib;G:\Dev\externals\freetype\freetype-2.4.10\win32-x64\lib\freetype.lib;G:\Dev\externals\ftgl\ftgl-2.1.3~rc5\win32-x64.vc12\lib\ftgl.lib;VistaOpenGLWidgetsD.lib;VistaGraphD.lib;VistaKernelOpenSGExtD.lib;VistaOGLExtD.lib;VistaKernelD.lib;VistaDataFlowNetD.lib;VistaDeviceDriversBaseD.lib;VistaToolsD.lib;VistaMathD.lib;VistaInterProcCommD.lib;VistaAspectsD.lib;VistaBaseD.lib;VistaWidgetsD.lib;G:\Dev\externals\sqlite\sqlite-3.7.17\win32-x64\lib\sqlite3.lib;Leap.lib;VistaKernelOpenSGExtD.lib;VistaKernelD.lib;VistaDataFlowNetD.lib;VistaDeviceDriversBaseD.lib;VistaToolsD.lib;VistaMathD.lib;VistaInterProcCommD.lib;VistaAspectsD.lib;VistaBaseD.lib;glu32.lib;opengl32.lib;OSGSystemD.lib;OSGBaseD.lib;G:\Dev\externals\freeglut\win32-x64\lib\freeglut.lib;G:\Dev\externals\glew\glew-1.10.0\win32-x64\lib\glew32.lib;G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVR\Lib\Windows\x64\Debug\VS2013\LibOVR.lib;VistaOGLExtD.lib;VflTextRenderingD.lib;G:\Dev\externals\freetype\freetype-2.4.10\win32-x64\lib\freetype.lib;G:\Dev\externals\ftgl\ftgl-2.1.3~rc5\win32-x64.vc12\lib\ftgl.lib;VistaOpenGLWidgetsD.lib;VistaGraphD.lib;VistaWidgetsD.lib;G:\Dev\externals\sqlite\sqlite-3.7.17\win32-x64\lib\sqlite3.lib;Leap.lib;glu32.lib;opengl32.lib;OSGSystemD.lib;OSGBaseD.lib;G:\Dev\externals\freeglut\win32-x64\lib\freeglut.lib;G:\Dev\externals\glew\glew-1.10.0\win32-x64\lib\glew32.lib;G:\Dev\externals\OculusSDK\OculusSDK-0.5.0.1\LibOVR\Lib\Windows\x64\Debug\VS2013\LibOVR.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/lib;G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/lib/$(Configuration);G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/lib/DriverPlugins;G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/lib/DriverPlugins/$(Configuration);G:/Dev/externals/OpenSG/OpenSG-1.8/win32-x64.vc12/lib;G:/Dev/externals/OpenSG/OpenSG-1.8/win32-x64.vc12/lib/$(Configuration);G:/Dev/externals/freeglut/win32-x64/lib;G:/Dev/externals/freeglut/win32-x64/lib/$(Configuration);G:/Dev/externals/glew/glew-1.10.0/win32-x64/lib;G:/Dev/externals/glew/glew-1.10.0/win32-x64/lib/$(Configuration);G:/Dev/externals/LeapSDK/LeapSDK-3.1.3/LeapSDK/lib/x64;G:/Dev/externals/LeapSDK/LeapSDK-3.1.3/LeapSDK/lib/x64/$(Configuration);G:/Dev/externals/sqlite/sqlite-3.7.17/win32-x64/lib;G:/Dev/externals/sqlite/sqlite-3.7.17/win32-x64/lib/$(Configuration);G:/Dev/VistaWidgets/build/win32-x64.vc12/lib;G:/Dev/VistaWidgets/build/win32-x64.vc12/lib/$(Configuration);G:/Dev/VistaGraphLib/build/win32-x64.vc12/lib;G:/Dev/VistaGraphLib/build/win32-x64.vc12/lib/$(Configuration);G:/Dev/VflPullDownMenu/build/win32-x64.vc12/lib;G:/Dev/VflPullDownMenu/build/win32-x64.vc12/lib/$(Configuration);G:/Dev/VflTextRendering/build/win32-x64.vc12/lib;G:/Dev/VflTextRendering/build/win32-x64.vc12/lib/$(Configuration);G:/Dev/externals/freetype/freetype-2.4.10/win32-x64/lib;G:/Dev/externals/freetype/freetype-2.4.10/win32-x64/lib/$(Configuration);G:/Dev/externals/ftgl/ftgl-2.1.3~rc5/win32-x64.vc12/lib;G:/Dev/externals/ftgl/ftgl-2.1.3~rc5/win32-x64.vc12/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>G:/Dev/MenuNav/build/win32-x64.vc12/bin/MenuNavD.lib</ImportLibrary>
+      <ProgramDataBaseFile>G:/Dev/MenuNav/build/win32-x64.vc12/bin/MenuNavD.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\Dev\MenuNav\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule G:/Dev/MenuNav/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HG:/Dev/MenuNav -BG:/Dev/MenuNav/build/win32-x64.vc12 --check-stamp-file G:\Dev\MenuNav\build\win32-x64.vc12\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:/Dev/MenuNav/CMakeLists.txt;G:\Dev\MenuNav\CMakeLists.txt;G:\Dev\MenuNav\build\win32-x64.vc12\CMakeFiles\3.3.0\CMakeSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeSystemSpecificInitialize.cmake;G:\Dev\MenuNav\build\win32-x64.vc12\CMakeFiles\3.3.0\CMakeCCompiler.cmake;G:\Dev\MenuNav\build\win32-x64.vc12\CMakeFiles\3.3.0\CMakeCXXCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\Platform\Windows.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\Platform\Windows-MSVC.cmake;G:\Dev\MenuNav\build\win32-x64.vc12\CMakeFiles\3.3.0\CMakeRCCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeCommonLanguageInclude.cmake;G:\Dev\VistaCMakeCommon\VistaCommon.cmake;G:\Dev\VistaCMakeCommon\VistaHWArchSettings.cmake;G:\Dev\VistaCMakeCommon\VistaFindUtils.cmake;G:\Dev\VistaCMakeCommon\VistaHWArchSettings.cmake;G:\Dev\VistaCMakeCommon\VistaBuildInfo.cmake;G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\cmake\VistaCoreLibsConfigVersion.cmake;G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\cmake\VistaCoreLibsConfig.cmake;G:\Dev\VistaCMakeCommon\FindVOpenGL.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindOpenGL.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;G:\Dev\VistaCMakeCommon\FindVOpenSG.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;G:\Dev\VistaCMakeCommon\VistaFindUtils.cmake;G:\Dev\VistaCMakeCommon\FindVGLUT.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;G:\Dev\VistaCMakeCommon\VistaFindUtils.cmake;G:\Dev\VistaCMakeCommon\FindVGLEW.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;G:\Dev\VistaCMakeCommon\VistaFindUtils.cmake;G:\Dev\VistaCMakeCommon\FindVOculusSDK.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;G:\Dev\VistaCMakeCommon\VistaFindUtils.cmake;G:\Dev\VistaCMakeCommon\FindVLeapSDK.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;G:\Dev\VistaCMakeCommon\VistaFindUtils.cmake;G:\Dev\VistaCMakeCommon\FindVSQLite.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;G:\Dev\VistaCMakeCommon\VistaFindUtils.cmake;G:\Dev\VistaWidgets\build\win32-x64.vc12\cmake\VistaWidgetsConfigVersion.cmake;G:\Dev\VistaWidgets\build\win32-x64.vc12\cmake\VistaWidgetsConfig.cmake;G:\Dev\VistaGraphLib\build\win32-x64.vc12\cmake\VistaGraphConfigVersion.cmake;G:\Dev\VistaGraphLib\build\win32-x64.vc12\cmake\VistaGraphConfig.cmake;G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\cmake\VistaCoreLibsConfigVersion.cmake;G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\cmake\VistaCoreLibsConfig.cmake;G:\Dev\VflPullDownMenu\build\win32-x64.vc12\cmake\VflPullDownMenuConfigVersion.cmake;G:\Dev\VflPullDownMenu\build\win32-x64.vc12\cmake\VflPullDownMenuConfig.cmake;G:\Dev\VflTextRendering\build\win32-x64.vc12\cmake\VflTextRenderingConfigVersion.cmake;G:\Dev\VflTextRendering\build\win32-x64.vc12\cmake\VflTextRenderingConfig.cmake;G:\Dev\VistaCMakeCommon\FindVFreeType.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;G:\Dev\VistaCMakeCommon\VistaFindUtils.cmake;G:\Dev\VistaCMakeCommon\FindVFTGL.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;G:\Dev\VistaCMakeCommon\VistaFindUtils.cmake;G:\Dev\VistaWidgets\build\win32-x64.vc12\cmake\VistaOpenGLWidgetsConfigVersion.cmake;G:\Dev\VistaWidgets\build\win32-x64.vc12\cmake\VistaOpenGLWidgetsConfig.cmake;G:\Dev\MenuNav\_SourceFiles.cmake;G:\Dev\VistaCMakeCommon\set_path.bat_proto;G:\Dev\VistaCMakeCommon\VisualStudio2010.vcxproj.user_proto;G:\Dev\VistaCMakeCommon\FindVSVN.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;G:\Dev\VistaCMakeCommon\VistaFindUtils.cmake;G:\Dev\VistaCMakeCommon\VistaHWArchSettings.cmake;G:\Dev\MenuNav\contrib\prototype_run.bat;G:\Dev\MenuNav\contrib\prototype_run.bat;G:\Dev\MenuNav\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\Dev\MenuNav\build\win32-x64.vc12\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule G:/Dev/MenuNav/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HG:/Dev/MenuNav -BG:/Dev/MenuNav/build/win32-x64.vc12 --check-stamp-file G:\Dev\MenuNav\build\win32-x64.vc12\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:/Dev/MenuNav/CMakeLists.txt;G:\Dev\MenuNav\CMakeLists.txt;G:\Dev\MenuNav\build\win32-x64.vc12\CMakeFiles\3.3.0\CMakeSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeSystemSpecificInitialize.cmake;G:\Dev\MenuNav\build\win32-x64.vc12\CMakeFiles\3.3.0\CMakeCCompiler.cmake;G:\Dev\MenuNav\build\win32-x64.vc12\CMakeFiles\3.3.0\CMakeCXXCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\Platform\Windows.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\Platform\Windows-MSVC.cmake;G:\Dev\MenuNav\build\win32-x64.vc12\CMakeFiles\3.3.0\CMakeRCCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeCommonLanguageInclude.cmake;G:\Dev\VistaCMakeCommon\VistaCommon.cmake;G:\Dev\VistaCMakeCommon\VistaHWArchSettings.cmake;G:\Dev\VistaCMakeCommon\VistaFindUtils.cmake;G:\Dev\VistaCMakeCommon\VistaHWArchSettings.cmake;G:\Dev\VistaCMakeCommon\VistaBuildInfo.cmake;G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\cmake\VistaCoreLibsConfigVersion.cmake;G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\cmake\VistaCoreLibsConfig.cmake;G:\Dev\VistaCMakeCommon\FindVOpenGL.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindOpenGL.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;G:\Dev\VistaCMakeCommon\FindVOpenSG.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;G:\Dev\VistaCMakeCommon\VistaFindUtils.cmake;G:\Dev\VistaCMakeCommon\FindVGLUT.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;G:\Dev\VistaCMakeCommon\VistaFindUtils.cmake;G:\Dev\VistaCMakeCommon\FindVGLEW.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;G:\Dev\VistaCMakeCommon\VistaFindUtils.cmake;G:\Dev\VistaCMakeCommon\FindVOculusSDK.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;G:\Dev\VistaCMakeCommon\VistaFindUtils.cmake;G:\Dev\VistaCMakeCommon\FindVLeapSDK.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;G:\Dev\VistaCMakeCommon\VistaFindUtils.cmake;G:\Dev\VistaCMakeCommon\FindVSQLite.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;G:\Dev\VistaCMakeCommon\VistaFindUtils.cmake;G:\Dev\VistaWidgets\build\win32-x64.vc12\cmake\VistaWidgetsConfigVersion.cmake;G:\Dev\VistaWidgets\build\win32-x64.vc12\cmake\VistaWidgetsConfig.cmake;G:\Dev\VistaGraphLib\build\win32-x64.vc12\cmake\VistaGraphConfigVersion.cmake;G:\Dev\VistaGraphLib\build\win32-x64.vc12\cmake\VistaGraphConfig.cmake;G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\cmake\VistaCoreLibsConfigVersion.cmake;G:\Dev\ViSTA_Oculus\build\win32-x64.vc12\cmake\VistaCoreLibsConfig.cmake;G:\Dev\VflPullDownMenu\build\win32-x64.vc12\cmake\VflPullDownMenuConfigVersion.cmake;G:\Dev\VflPullDownMenu\build\win32-x64.vc12\cmake\VflPullDownMenuConfig.cmake;G:\Dev\VflTextRendering\build\win32-x64.vc12\cmake\VflTextRenderingConfigVersion.cmake;G:\Dev\VflTextRendering\build\win32-x64.vc12\cmake\VflTextRenderingConfig.cmake;G:\Dev\VistaCMakeCommon\FindVFreeType.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;G:\Dev\VistaCMakeCommon\VistaFindUtils.cmake;G:\Dev\VistaCMakeCommon\FindVFTGL.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;G:\Dev\VistaCMakeCommon\VistaFindUtils.cmake;G:\Dev\VistaWidgets\build\win32-x64.vc12\cmake\VistaOpenGLWidgetsConfigVersion.cmake;G:\Dev\VistaWidgets\build\win32-x64.vc12\cmake\VistaOpenGLWidgetsConfig.cmake;G:\Dev\MenuNav\_SourceFiles.cmake;G:\Dev\VistaCMakeCommon\set_path.bat_proto;G:\Dev\VistaCMakeCommon\VisualStudio2010.vcxproj.user_proto;G:\Dev\VistaCMakeCommon\FindVSVN.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.3\Modules\CMakeParseArguments.cmake;G:\Dev\VistaCMakeCommon\VistaFindUtils.cmake;G:\Dev\VistaCMakeCommon\VistaHWArchSettings.cmake;G:\Dev\MenuNav\contrib\prototype_run.bat;G:\Dev\MenuNav\contrib\prototype_run.bat;G:\Dev\MenuNav\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\Dev\MenuNav\build\win32-x64.vc12\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="G:\Dev\MenuNav\MenuNav.h" />
+    <ClInclude Include="G:\Dev\MenuNav\Hand.h" />
+    <ClInclude Include="G:\Dev\MenuNav\HandInteractionManager.h" />
+    <ClInclude Include="G:\Dev\MenuNav\InitConstants.h" />
+    <ClInclude Include="G:\Dev\MenuNav\MassegeWidget.h" />
+    <ClCompile Include="G:\Dev\MenuNav\MenuNav.cpp"  />
+    <ClCompile Include="G:\Dev\MenuNav\Hand.cpp"  />
+    <ClCompile Include="G:\Dev\MenuNav\HandInteractionManager.cpp"  />
+    <ClCompile Include="G:\Dev\MenuNav\main.cpp"  />
+    <ClCompile Include="G:\Dev\MenuNav\InitConstants.cpp"  />
+    <ClCompile Include="G:\Dev\MenuNav\MassegeWidget.cpp"  />
+    <None Include="G:\Dev\MenuNav\setup.ini" />
+    <None Include="G:\Dev\MenuNav\_SourceFiles.cmake" />
+    <None Include="G:\Dev\MenuNav\configfiles\android.ini" />
+    <None Include="G:\Dev\MenuNav\configfiles\display_desktop.ini" />
+    <None Include="G:\Dev\MenuNav\configfiles\display_oculus.ini" />
+    <None Include="G:\Dev\MenuNav\configfiles\interaction_desktop.ini" />
+    <None Include="G:\Dev\MenuNav\configfiles\interaction_oculus.ini" />
+    <None Include="G:\Dev\MenuNav\configfiles\SkeletonRightHand.ini" />
+    <None Include="G:\Dev\MenuNav\configfiles\SkeletonRightHand_new.ini" />
+    <None Include="G:\Dev\MenuNav\configfiles\vista.ini" />
+    <None Include="G:\Dev\MenuNav\configfiles\vista_oculus.ini" />
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\appctx_timing.xml" />
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\appctx_viewerupdate.xml" />
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\applicationcontext_flystick.xml" />
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\applicationcontext_mouse.xml" />
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\doorstate_newcave.xml" />
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\generic_flystick_data_newcave.xml" />
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\generic_flystick_data_panasonic.xml" />
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\hand_leap_left.xml" />
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\hand_leap_left_desktop.xml" />
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\hand_leap_on_oculus_left.xml" />
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\hand_leap_on_oculus_right.xml" />
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\hand_leap_right.xml" />
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\hand_leap_right_desktop.xml" />
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\keyboard_standardinput.xml" />
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\mouse_trackball.xml" />
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\navigation_flystick2_aroundorigin.xml" />
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\ucp_newcave.xml" />
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\ucp_panasonic.xml" />
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\vfa_timing.xml" />
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\vw_viewerupdate.xml" />
+    <XML Include="G:\Dev\MenuNav\configfiles\xml\worldpointer_mouse.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="G:/Dev/MenuNav/build/win32-x64.vc12/ZERO_CHECK.vcxproj">
+      <Project>71500CD2-4FD0-4EAD-AF0C-DFB69302EEAF</Project>
+    </ProjectReference>
+    <ProjectReference Include="G:/Dev/VflPullDownMenu/build/win32-x64.vc12/VflPullDownMenu.vcxproj">
+      <Project>9962F8CA-2EE0-45E3-9DFA-4A12E2127B0D</Project>
+    </ProjectReference>
+    <ProjectReference Include="G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/VistaCoreLibs/VistaAspects/VistaAspects.vcxproj">
+      <Project>372C9A10-B880-40DC-8864-FD4BAB097ADB</Project>
+    </ProjectReference>
+    <ProjectReference Include="G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/VistaCoreLibs/VistaBase/VistaBase.vcxproj">
+      <Project>06627DE2-8947-47F9-8F2F-22CE4A264AF5</Project>
+    </ProjectReference>
+    <ProjectReference Include="G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/VistaCoreLibs/VistaDataFlowNet/VistaDataFlowNet.vcxproj">
+      <Project>1591D605-CD3A-44AD-89D1-F8F428480574</Project>
+    </ProjectReference>
+    <ProjectReference Include="G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/VistaCoreLibs/VistaDeviceDriversBase/VistaDeviceDriversBase.vcxproj">
+      <Project>622E8CEB-73F6-48ED-AAF0-642F40A52FB6</Project>
+    </ProjectReference>
+    <ProjectReference Include="G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/VistaCoreLibs/VistaInterProcComm/VistaInterProcComm.vcxproj">
+      <Project>66740514-2FF3-4C6A-BFA9-38226E290C98</Project>
+    </ProjectReference>
+    <ProjectReference Include="G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/VistaCoreLibs/VistaKernel/VistaKernel.vcxproj">
+      <Project>20693970-E0B5-4551-90C9-2E5EBD0B7214</Project>
+    </ProjectReference>
+    <ProjectReference Include="G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/VistaCoreLibs/VistaKernelOpenSGExt/VistaKernelOpenSGExt.vcxproj">
+      <Project>1A0F56E1-5984-40BB-82FA-C6869F7E2880</Project>
+    </ProjectReference>
+    <ProjectReference Include="G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/VistaCoreLibs/VistaMath/VistaMath.vcxproj">
+      <Project>D63403D4-46E1-4432-92CA-6111EE56A37F</Project>
+    </ProjectReference>
+    <ProjectReference Include="G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/VistaCoreLibs/VistaOGLExt/VistaOGLExt.vcxproj">
+      <Project>A8E07A2C-C71B-4417-A5EB-706C5940C72B</Project>
+    </ProjectReference>
+    <ProjectReference Include="G:/Dev/ViSTA_Oculus/build/win32-x64.vc12/VistaCoreLibs/VistaTools/VistaTools.vcxproj">
+      <Project>E7F925F1-A784-4DB2-A2D3-D75E2BBE022B</Project>
+    </ProjectReference>
+    <ProjectReference Include="G:/Dev/VistaWidgets/build/win32-x64.vc12/VistaWidgets/VistaWidgets.vcxproj">
+      <Project>D6E05200-B29F-4416-8365-0ACEE54D1CDA</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

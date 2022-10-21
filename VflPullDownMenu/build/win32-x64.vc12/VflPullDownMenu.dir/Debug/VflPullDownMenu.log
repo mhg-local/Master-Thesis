@@ -1,0 +1,91 @@
+﻿Build started 12.05.2017 12:21:20.
+     1>Project "G:\Dev\VflPullDownMenu\build\win32-x64.vc12\VflPullDownMenu.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IG:\Dev\ViSTA\VistaCoreLibs /I"G:\Dev\ViSTA\VistaCoreLibs\build\win32-x64.vc12\lib\DriverPlugins" /I"G:\Dev\externals\OpenSG\OpenSG-1.8\win32-x64.vc12\include" /I"G:\Dev\externals\freeglut\win32-x64\include" /I"G:\Dev\externals\GLEW\glew-1.10.0\win32-x64\include" /IG:\Dev\VistaWidgets /IG:\Dev\VistaWidgets\VistaWidgets /IG:\Dev\VflTextRendering /I"G:\Dev\externals\FreeType\freetype-2.4.10\win32-x64\include" /I"G:\Dev\externals\FreeType\freetype-2.4.10\win32-x64\include\freetype2" /I"G:\Dev\externals\FTGL\ftgl-2.1.3~rc5\win32-x64.vc12\include" /IG:\Dev\VistaWidgets\VistaOpenGLWidgets /IG:\Dev\VflPullDownMenu /Zi /nologo /W3 /WX- /MP /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D DEBUG /D VFLPULLDOWNMENU_EXPORTS /D WIN32 /D _CRT_SECURE_NO_WARNINGS /D OSG_WITH_GLUT /D OSG_WITH_GIF /D OSG_WITH_TIF /D OSG_WITH_JPG /D OSG_BUILD_DLL /D _OSG_HAVE_CONFIGURED_H_ /D "CMAKE_INTDIR=\"Debug\"" /D VflPullDownMenu_EXPORTS /D _WINDLL /D _MBCS /GF /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"VflPullDownMenu.dir\Debug\\" /Fd"VflPullDownMenu.dir\Debug\vc120.pdb" /Gd /TP /wd4251 /wd4275 /wd4503 /errorReport:prompt G:\Dev\VflPullDownMenu\VpmPullDownMenu.cpp G:\Dev\VflPullDownMenu\VpmPullDownMenuView.cpp G:\Dev\VflPullDownMenu\Elements\VpmBaseButtonElement.cpp G:\Dev\VflPullDownMenu\Elements\VpmCheckBoxElement.cpp G:\Dev\VflPullDownMenu\Elements\VpmElement.cpp G:\Dev\VflPullDownMenu\Elements\VpmElementView.cpp G:\Dev\VflPullDownMenu\Elements\VpmLabelElement.cpp G:\Dev\VflPullDownMenu\Elements\VpmRadioButtonElement.cpp G:\Dev\VflPullDownMenu\Elements\VpmScalerElement.cpp G:\Dev\VflPullDownMenu\Elements\VpmSliderElement.cpp G:\Dev\VflPullDownMenu\Elements\VpmSoildButtonElement.cpp G:\Dev\VflPullDownMenu\Elements\VpmTextureButtonElement.cpp G:\Dev\VflPullDownMenu\Widget\VwBorderWidget.cpp G:\Dev\VflPullDownMenu\Widget\VwTexturePlaneWidget.cpp G:\Dev\VflPullDownMenu\Widget\VwScalerWidget.cpp
+         VpmPullDownMenu.cpp
+         VpmPullDownMenuView.cpp
+         VpmBaseButtonElement.cpp
+         VpmCheckBoxElement.cpp
+     1>G:\Dev\VflPullDownMenu\VpmPullDownMenuView.cpp(31): error C2039: 'GetLength' : is not a member of 'VwColoredPlaneView'
+                 G:\Dev\VistaWidgets\VistaWidgets/Widgets/Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\VpmPullDownMenuView.cpp(37): error C2039: 'SetLength' : is not a member of 'VwColoredPlaneView'
+                 G:\Dev\VistaWidgets\VistaWidgets/Widgets/Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\VpmPullDownMenuView.cpp(43): error C2039: 'GetWidth' : is not a member of 'VwColoredPlaneView'
+                 G:\Dev\VistaWidgets\VistaWidgets/Widgets/Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\VpmPullDownMenuView.cpp(49): error C2039: 'SetWidth' : is not a member of 'VwColoredPlaneView'
+                 G:\Dev\VistaWidgets\VistaWidgets/Widgets/Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\VpmPullDownMenuView.cpp(55): error C2039: 'GetPosition' : is not a member of 'VwColoredPlaneView'
+                 G:\Dev\VistaWidgets\VistaWidgets/Widgets/Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\VpmPullDownMenuView.cpp(61): error C2039: 'SetPosition' : is not a member of 'VwColoredPlaneView'
+                 G:\Dev\VistaWidgets\VistaWidgets/Widgets/Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\VpmPullDownMenuView.cpp(67): error C2039: 'GetOrientation' : is not a member of 'VwColoredPlaneView'
+                 G:\Dev\VistaWidgets\VistaWidgets/Widgets/Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\VpmPullDownMenuView.cpp(73): error C2039: 'SetOrientation' : is not a member of 'VwColoredPlaneView'
+                 G:\Dev\VistaWidgets\VistaWidgets/Widgets/Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+         VpmElement.cpp
+     1>G:\Dev\VflPullDownMenu\Elements\VpmBaseButtonElement.cpp(113): warning C4267: 'return' : conversion from 'size_t' to 'int', possible loss of data
+     1>G:\Dev\VflPullDownMenu\VpmPullDownMenu.cpp(145): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>G:\Dev\VflPullDownMenu\Elements\VpmElement.cpp(51): error C2039: 'SetColor' : is not a member of 'VwColoredPlaneView'
+                 g:\dev\vistawidgets\vistawidgets\widgets\Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\Elements\VpmElement.cpp(52): error C2039: 'SetFocusColor' : is not a member of 'VwColoredPlaneView'
+                 g:\dev\vistawidgets\vistawidgets\widgets\Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\Elements\VpmElement.cpp(57): error C2039: 'SetColor' : is not a member of 'VwColoredPlaneView'
+                 g:\dev\vistawidgets\vistawidgets\widgets\Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\Elements\VpmElement.cpp(58): error C2039: 'SetFocusColor' : is not a member of 'VwColoredPlaneView'
+                 g:\dev\vistawidgets\vistawidgets\widgets\Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\Elements\VpmElement.cpp(76): error C2039: 'SetFocusColor' : is not a member of 'VwColoredPlaneView'
+                 g:\dev\vistawidgets\vistawidgets\widgets\Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\Elements\VpmElement.cpp(77): error C2039: 'SetColor' : is not a member of 'VwColoredPlaneView'
+                 g:\dev\vistawidgets\vistawidgets\widgets\Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\Elements\VpmElement.cpp(87): error C2039: 'SetFocusColor' : is not a member of 'VwColoredPlaneView'
+                 g:\dev\vistawidgets\vistawidgets\widgets\Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\Elements\VpmElement.cpp(88): error C2039: 'SetFocusColor' : is not a member of 'VwColoredPlaneView'
+                 g:\dev\vistawidgets\vistawidgets\widgets\Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\Elements\VpmElement.cpp(89): error C2039: 'SetPressedColor' : is not a member of 'VwColoredPlaneView'
+                 g:\dev\vistawidgets\vistawidgets\widgets\Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\Elements\VpmElement.cpp(90): error C2039: 'SetPressedColor' : is not a member of 'VwColoredPlaneView'
+                 g:\dev\vistawidgets\vistawidgets\widgets\Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\Elements\VpmElement.cpp(205): error C2661: 'VwSignal<const VwBoolChangedSignalArgs &>::AddSlot' : no overloaded function takes 2 arguments
+     1>G:\Dev\VflPullDownMenu\Elements\VpmElement.cpp(434): error C2039: 'SetPressedColor' : is not a member of 'VwColoredPlaneView'
+                 g:\dev\vistawidgets\vistawidgets\widgets\Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\Elements\VpmElement.cpp(435): error C2039: 'SetPressedColor' : is not a member of 'VwColoredPlaneView'
+                 g:\dev\vistawidgets\vistawidgets\widgets\Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\Elements\VpmElement.cpp(516): error C2039: 'SetPressedColor' : is not a member of 'VwColoredPlaneView'
+                 g:\dev\vistawidgets\vistawidgets\widgets\Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\Elements\VpmElement.cpp(517): error C2039: 'SetPressedColor' : is not a member of 'VwColoredPlaneView'
+                 g:\dev\vistawidgets\vistawidgets\widgets\Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+         VpmElementView.cpp
+         VpmLabelElement.cpp
+         VpmRadioButtonElement.cpp
+     1>g:\dev\vflpulldownmenu\elements\vpmbasebuttonelement.cpp(129): warning C4715: 'VpmBaseButtonElement::RemoveButton' : not all control paths return a value
+         VpmScalerElement.cpp
+         VpmSliderElement.cpp
+         VpmSoildButtonElement.cpp
+         VpmTextureButtonElement.cpp
+     1>G:\Dev\VflPullDownMenu\Elements\VpmSoildButtonElement.cpp(117): error C2039: 'SetFocusColor' : is not a member of 'VwColoredPlaneView'
+                 g:\dev\vistawidgets\vistawidgets\widgets\Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\Elements\VpmSoildButtonElement.cpp(118): error C2039: 'SetPressedColor' : is not a member of 'VwColoredPlaneView'
+                 g:\dev\vistawidgets\vistawidgets\widgets\Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\Elements\VpmSoildButtonElement.cpp(119): error C2039: 'SetColor' : is not a member of 'VwColoredPlaneView'
+                 g:\dev\vistawidgets\vistawidgets\widgets\Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+         VwBorderWidget.cpp
+         VwTexturePlaneWidget.cpp
+         VwScalerWidget.cpp
+     1>G:\Dev\VflPullDownMenu\Widget\VwBorderWidget.cpp(38): error C2039: 'SetColor' : is not a member of 'VwColoredPlaneView'
+                 g:\dev\vistawidgets\vistawidgets\widgets\Views/VwColoredPlaneView.h(61) : see declaration of 'VwColoredPlaneView'
+     1>G:\Dev\VflPullDownMenu\Widget\VwBorderWidget.cpp(84): error C2661: 'VwSignal<const VwBoolChangedSignalArgs &>::AddSlot' : no overloaded function takes 2 arguments
+     1>G:\Dev\VflPullDownMenu\Widget\VwTexturePlaneWidget.cpp(86): error C2039: 'SetOrientation' : is not a member of 'VglwTexturedPlaneView'
+                 G:\Dev\VistaWidgets\VistaOpenGLWidgets\Widgets\Views\VglwTexturedPlaneView.h(71) : see declaration of 'VglwTexturedPlaneView'
+     1>G:\Dev\VflPullDownMenu\Widget\VwTexturePlaneWidget.cpp(91): error C2039: 'SetPosition' : is not a member of 'VglwTexturedPlaneView'
+                 G:\Dev\VistaWidgets\VistaOpenGLWidgets\Widgets\Views\VglwTexturedPlaneView.h(71) : see declaration of 'VglwTexturedPlaneView'
+     1>G:\Dev\VflPullDownMenu\Widget\VwTexturePlaneWidget.cpp(101): error C2039: 'SetWidth' : is not a member of 'VglwTexturedPlaneView'
+                 G:\Dev\VistaWidgets\VistaOpenGLWidgets\Widgets\Views\VglwTexturedPlaneView.h(71) : see declaration of 'VglwTexturedPlaneView'
+     1>G:\Dev\VflPullDownMenu\Widget\VwTexturePlaneWidget.cpp(106): error C2039: 'SetLength' : is not a member of 'VglwTexturedPlaneView'
+                 G:\Dev\VistaWidgets\VistaOpenGLWidgets\Widgets\Views\VglwTexturedPlaneView.h(71) : see declaration of 'VglwTexturedPlaneView'
+     1>G:\Dev\VflPullDownMenu\Widget\VwScalerWidget.cpp(89): error C2661: 'VwSignal<const VwBoolChangedSignalArgs &>::AddSlot' : no overloaded function takes 2 arguments
+     1>G:\Dev\VflPullDownMenu\Widget\VwScalerWidget.cpp(429): warning C4244: 'argument' : conversion from 'const unsigned int' to 'float', possible loss of data
+     1>Done Building Project "G:\Dev\VflPullDownMenu\build\win32-x64.vc12\VflPullDownMenu.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:18.20
